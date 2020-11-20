@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+
+    <template id="report_assets_common_custom_fonts" name="Custom QWeb fonts" inherit_id="web.report_assets_common">
+        <xpath expr="." position="inside">
+            <link href="noboogh/static/src/css/fonts.css" rel="stylesheet" type="text/css"/>
+        </xpath>
+    </template>
+
+    <!-- <template id="custom_temp">
+    <xpath expr="" position="after">
+      
+    </xpath>
+    </template> -->
+
+<template  id="invoice_report" inherit_id="account.report_invoice_document"> 
+
+         <xpath expr="//div[@id='informations']//div[@name='origin']" position="after">
+                <div class="col">
+                  <strong>
+                    المخزن:  
+                  </strong>
+                  <br/> 
+                 <p t-field="o.warehouse_location_id.location_id"></p>
+                 </div>
+                 </xpath>
+
+
+
+        <xpath expr="//table[@name='invoice_line_table']//th[@name='th_subtotal']" position="after" >
+                <th name="th_type" class="text-right orisdi"><span class="orisdi">نوع المنتج</span></th> 
+        </xpath>
+         
+         
+          <xpath expr="//tbody[@class='invoice_tbody']//t[@name='account_invoice_line_accountable']" position="after">
+                               <td name='line.type' class="text-right orisdi" >
+                                  <span t-field='line.product_id.product_type' />
+                                  </td>
+                                
+                                 <td name='line.type' class="text-right orisdi ">
+                                  <span t-field='line.product_id.country_of_origin' />
+                                  </td>
+                     </xpath>
+
+
+                    <xpath expr="//table[@name='invoice_line_table']//th[@name='th_type']" position="after">
+                                    <th name="th_cofo" class="text-right orisdi"><span>بلد المنشأ </span></th> 
+                            </xpath>
+
+              
+                <xpath expr="//div[@id='total']//table//tr" position="after">
+                        <tr class="border-black o_total">
+                         <td>
+                         <strong class="orisdi">  الكمية المباعة  </strong>
+                       </td>
+                         <td class="text-right">
+                         <span t-field="o.total_qty" class="text-left mr16"/>
+                         </td>
+                        </tr>
+                    </xpath>
+ 
+      
+<!--       
+              <xpath expr="//div[@id='total']//table//tr" position="before">
+                   <tr class="border-black o_total">
+                     <td >
+                         <strong class="orisdi">  المبلغ المستحق </strong>
+                         </td>
+                         <td class="text-right">
+                     <span t-esc="o.partner_id.total_due-o.amount_total"/>
+                     </td>
+                  </tr>
+                    </xpath>  -->
+                     
+
+                    <xpath expr="//t[@t-set='address']" position="replace">
+                            
+                            <div class="arabic_title">
+                          <p> تجارة الادوية الاحتياطية والمنزلية </p>
+                          <p> تدفئة و تبريد - جملة و مفرد -  استيراد و تصدير</p>
+                          </div>
+                    </xpath>
+
+</template>
+
+
+
+
+</data>
+</odoo>

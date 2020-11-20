@@ -1,0 +1,22 @@
+/* p {
+    background-color: blue;
+} */
+/* @font-face {
+    font-family: 'MonixBold';
+    src: local('MonixBold'), local('MonixBold'), url(/your_module/static/src/fonts/MonixBold-Regular.otf) format('opentype');
+} */
+
+@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300&display=swap');
+
+* {
+    font-family: 'Almarai', sans-serif;
+    /* color: #3399cc; */
+}
+
+.arabic_title {
+right:0;
+top:0;
+bottom:40px;
+left:40px; 
+
+}
