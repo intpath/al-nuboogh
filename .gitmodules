@@ -1,0 +1,4 @@
+[submodule "intpath/al-nuboogh"]
+	path = intpath/al-nuboogh
+	url = git@github.com:Shams97/al-nuboogh.git
+	branch = master
