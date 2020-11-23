@@ -2,3 +2,8 @@
 	path = intpath/al-nuboogh
 	url = git@github.com:Shams97/al-nuboogh.git
 	branch = master
+
+[submodule "Shams97/al-nuboogh"]
+	path = Shams97/al-nuboogh
+	url = git@github.com:Shams97/al-nuboogh.git
+	branch = master
