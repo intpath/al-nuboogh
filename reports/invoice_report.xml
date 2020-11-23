@@ -17,7 +17,7 @@
 <template  id="invoice_report" inherit_id="account.report_invoice_document"> 
 
          <xpath expr="//div[@id='informations']//div[@name='origin']" position="after">
-                <div class="col">
+                <div class="col-auto mw-100 mb-2">
                   <strong>
                     المخزن:  
                   </strong>
