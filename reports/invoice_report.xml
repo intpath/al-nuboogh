@@ -73,14 +73,14 @@
                   </tr>
                     </xpath>  -->
                      
-
+<!-- 
                     <xpath expr="//t[@t-set='address']" position="replace">
                             
                             <div class="arabic_title">
                           <p> تجارة الادوية الاحتياطية والمنزلية </p>
                           <p> تدفئة و تبريد - جملة و مفرد -  استيراد و تصدير</p>
                           </div>
-                    </xpath>
+                    </xpath> -->
 
 </template>
 
