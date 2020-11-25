@@ -69,3 +69,7 @@ class ProductTemplateExt(models.Model):
 
 
 
+class ResPartnerExt(models.Model):
+    _inherit = "account.move"
+    invoice_type = fields.Selection([('monetory', 'نقدي'), ('temem','ذمم')] , string="نوع الفاتورة" , default="temem")
+

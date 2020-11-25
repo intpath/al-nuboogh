@@ -10,13 +10,29 @@
 
 * {
     font-family: 'Almarai', sans-serif;
-    /* color: #3399cc; */
 }
-
 .arabic_title {
-right:0;
-top:0;
-bottom:40px;
-left:40px; 
+    font-size: 18px;
 
 }
+.comp_name {
+    /* font-size: 34px; */
+    font-weight: 800;
+    color:#3399cc;
+}
+.cus_container {
+text-align: right;}
+
+.footer_list {
+    display:flex;
+    flex-direction: row;
+}
+.con_p > p{
+     margin: 0px 10px;
+}
+.inner_div {
+    display: flex;
+    flex-direction: row;
+    margin: 0px 15px;
+}
+
