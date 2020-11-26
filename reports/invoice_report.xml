@@ -10,7 +10,7 @@
 
 
           <template inherit_id="web.external_layout_standard" id="custom_standard_layout_header" > 
-                    <xpath expr="//div[hasclass('header')]//div[1]//div[1]" position="replace" >  
+                    <xpath expr="//div[@t-att-style[hasclass('report_header_style')]//div[1]//div[1]" position="replace" >  
                          <div class="col-9 " style="direction:rtl;">
                          <h1 class="comp_name">النبوغ</h1> 
                           <p class="arabic_title"> تجارة الادوية الاحتياطية والمنزلية <br/>
@@ -24,7 +24,7 @@
           </template>
 
 
-
+<!-- 
           <template inherit_id="web.external_layout_standard" id="custom_standard_layout_footer"> 
                     <xpath expr="//div[hasclass('footer')]//div[1]//ul" position="replace">  
                                            <div class="con_p row text-right" align="center" style="direction:rtl;">
@@ -46,7 +46,7 @@
                                           </div>
                                            </div>   
                     </xpath> 
-          </template> 
+          </template>  -->
 
 
 
@@ -121,6 +121,7 @@
       
 
 
+          
            <!--       
               <xpath expr="//div[@id='total']//table//tr" position="before">
                    <tr class="border-black o_total">
