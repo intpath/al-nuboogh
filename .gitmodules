@@ -12,3 +12,8 @@
 	path = intpath/partner_ledger_report_ext
 	url = git@github.com:intpath/partner_ledger_report_ext.git
 	branch = master
+
+[submodule "intpath/product_notifications"]
+	path = intpath/product_notifications
+	url = git@github.com:intpath/product_notifications.git
+	branch = master
