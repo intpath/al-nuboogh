@@ -23,7 +23,7 @@
 
           </template>
 
-<!-- 
+ 
           <template inherit_id="web.external_layout_standard" id="custom_standard_layout_footer"> 
                     <xpath expr="//div[hasclass('footer')]//div[1]//ul" position="replace">  
                                            <div class="con_p row text-right" align="center" style="direction:rtl;">
@@ -45,7 +45,7 @@
                                           </div>
                                            </div>   
                     </xpath> 
-          </template>  -->
+          </template>  
 
 
 
