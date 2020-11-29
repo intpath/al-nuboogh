@@ -20,7 +20,7 @@
                               <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-height: 45px;" alt="Logo"/>
                             </div>                      -->
               
-                 <div class="row">
+                 <div class="row ml-4" >
                 <div class="col-8 mb-2 mt-1">
                   <p style="line-height:0.1;">تجارة الادوات الاحتياطية والمنزلية</p>
                   <p style="line-height:0.2;">تدفئة وتبريد - جملة ومفرد - استيراد وتصدير</p>
@@ -28,7 +28,7 @@
                   <p style="line-height:0.2;">Air Conditioning - Wholesale - Single - Import - Export</p>
                   </div>
                  
-                  <div class="col-3 mt-2">
+                  <div class="col-3 mt-2 ">
                     <img  t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="min-height:80 px;max-height:80px;" alt="Logo"/>
                   </div>
             </div>
