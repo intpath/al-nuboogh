@@ -17,3 +17,8 @@
 	path = intpath/product_notifications
 	url = git@github.com:intpath/product_notifications.git
 	branch = master
+
+[submodule "intpath/sh_sale_order_history"]
+	path = intpath/sh_sale_order_history
+	url = git@github.com:intpath/sh_sale_order_history.git
+	branch = master
