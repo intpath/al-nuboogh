@@ -11,14 +11,34 @@
 
           <template inherit_id="web.external_layout_standard" id="custom_standard_layout_header" > 
                     <xpath expr="//div[@t-att-style='report_header_style']//div[1]//div[1]" position="replace" >  
-                         <div class="col-9 " style="direction:rtl;">
+                         <!-- <div class="col-9 " style="direction:rtl;">
                          <h1 class="comp_name">النبوغ</h1> 
                           <p class="arabic_title"> تجارة الادوية الاحتياطية والمنزلية <br/>
                            تدفئة و تبريد - جملة و مفرد -  استيراد و تصدير</p>   
                            </div> 
                              <div class="col-3 mt12" style="direction:rtl; margin-top:10px">
                               <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-height: 45px;" alt="Logo"/>
-                            </div>                     
+                            </div>                      -->
+              
+                 <div class="row">
+                <div class="col-8 mb-2 mt-1">
+                  <p style="line-height:0.1;">تجارة الادوات الاحتياطية والمنزلية</p>
+                  <p style="line-height:0.2;">تدفئة وتبريد - جملة ومفرد - استيراد وتصدير</p>
+                  <p style="line-height:0.2;"> HOME EQUIPMENTS&amp;SPARE PARTS TRADE</p>
+                  <p style="line-height:0.2;">Air Conditioning - Wholesale - Single - Import - Export</p>
+                  </div>
+                 
+                  <div class="col-3 mt-2">
+                    <img  t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="min-height:80 px;max-height:80px;" alt="Logo"/>
+                  </div>
+            </div>
+
+                        <div t-if="company.logo or company.report_header" class="row zero_min_height">
+                            <div class="col-12">
+                                <div style="border-bottom: 1px solid black;"/>
+                            </div>
+                        </div>
+
                     </xpath> 
 
           </template>
