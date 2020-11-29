@@ -22,3 +22,8 @@
 	path = intpath/sh_sale_order_history
 	url = git@github.com:intpath/sh_sale_order_history.git
 	branch = master
+
+[submodule "intpath/product_bundle_pack"]
+	path = intpath/product_bundle_pack
+	url = git@github.com:intpath/product_bundle_pack.git
+	branch = 14
