@@ -10,33 +10,35 @@
 
 
     <template inherit_id="web.external_layout_standard" id="custom_nuboogh_layout">
-        <xpath expr="//div[@t-att-style='report_header_style']//div[1]" position="replace" >          
-            <div class="row ml-4"  style="width: 100%;">
+        <xpath expr="//div[@t-att-style='report_header_style']//div[1]" position="replace">          
+            <div class="row ml-4" style="width: 100%;">
 
               <div align="right" class="col-4" style="width: 50%;">
                 <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="min-height: 80px; max-height: 80px;" alt="Logo"/>
               </div>
 
-              <div class="col-8 mb-2 mt-1" style="width: 50%; margin-right: 170px;">
-                <p style="line-height:0.1;">تجارة الادوات الاحتياطية والمنزلية</p>
-                <p style="line-height:0.2;">تدفئة وتبريد - جملة ومفرد - استيراد وتصدير</p>
-                <p style="line-height:0.2;"> HOME EQUIPMENTS&amp;SPARE PARTS TRADE</p>
-                <p style="line-height:0.2;">Air Conditioning - Wholesale - Single - Import - Export</p>
-                <p style="line-height:0.2;">Tel: 8867516 - 8867517</p>
+              <div class="col-8 mb-2" style="width: 50%; margin-right: 120px; margin-top: 10px;">
+                <div align="right" style="padding-right: 90px;">
+                  <p style="font-weight: bold; line-height:0.2;">تجارة الادوات الاحتياطية والمنزلية</p>
+                  <p style="font-size: small; line-height:0.1;">تدفئة وتبريد - جملة ومفرد - استيراد وتصدير</p>
+                  <p style="font-size: small; line-height:0.1;">HOME EQUIPMENTS &amp; SPARE PARTS TRADE</p>
+                  <p style="font-size: small; line-height:0.1;">Air Conditioning - Wholesale - Single - Import - Export</p>
+                  <p style="font-size: small; line-height:0.1;">Tel: 8867516 - 8867517</p>
+                </div>
               </div>
 
             </div>
         </xpath> 
 
         <xpath expr="//div[@name='company_address']//.." position="replace">
-          <div class="row" style="margin-top: 10px;">
+          <div class="row" style="margin-top: 20px;">
             <div class="col-4">
               <p align="right" style="line-height: 0.07;">رقم الشركة 07736264163</p>
               <p align="right" style="line-height: 0.07;">رقم الإدارة 07901103487</p>
               <p align="right" style="line-height: 0.07;">محمد شنون 07712700870</p>
             </div>
 
-            <div class="col-4">
+            <div class="col-4" style="border-right: solid black 1px; border-left: solid black 1px;">
               <p align="center" style="line-height: 0.07; font-weight: bold;">مبيعات</p>
               <p align="center" style="line-height: 0.07;">07834036241</p>
               <p align="center" style="line-height: 0.07;">07736737091</p>
@@ -51,10 +53,9 @@
         </xpath>
 
         <xpath expr="//t[@t-call='web.address_layout']//.." position="attributes">
-          <attribute name="style">margin-bottom: 5px;</attribute>          
+          <attribute name="style">margin-bottom: 5px; margin-right: -1200px;</attribute>
           <attribute name="align">right</attribute>          
         </xpath>
-
     </template>
 
 
@@ -93,11 +94,16 @@
       <xpath expr="//tbody[@class='invoice_tbody']//t[@name='account_invoice_line_accountable']//span[@id='line_tax_ids']//.." position="replace"/>
 
       <xpath expr="//table[@name='invoice_line_table']//th[@name='th_description']" position="after" >
-        <th name="th_type" class="text-right"><span>الصنف الثاني</span></th> 
+        <th name="th_type" class="text-right"><span>الصنف الثاني</span></th>
+        <th name="th_type" class="text-right"><span>الموديل</span></th>
         <th name="th_cofo" class="text-right"><span>بلد المنشأ </span></th> 
       </xpath>
       
       <xpath expr="//tbody[@class='invoice_tbody']//t[@name='account_invoice_line_accountable']//td[1]" position="after">                            
+        <td name='line.type' class="text-right" >
+          <span t-field='line.product_id.product_name_2'/>
+        </td>
+
         <td name='line.type' class="text-right" >
           <span t-field='line.product_id.product_type'/>
         </td>
