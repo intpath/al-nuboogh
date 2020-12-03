@@ -44,7 +44,7 @@
     </template>
 
     <template id="report_payment_receipt_without_table_document">
-        <t t-call="al-nuboogh.payment_layout">
+        <t t-call="al-nuboogh.noboogh_payment_layout">
             <t t-set="o" t-value="o.with_context(lang=lang)"/>
             <div class="page">
                 <h3><strong>إيصال السداد: <span t-field="o.name"/></strong></h3>
@@ -66,7 +66,7 @@
                         </t><span t-field="o.partner_id"/>
                     </div>
                     <div class="col-6" t-if="o.payment_method_id">
-                        <strong>طريقة السداد:: </strong><span t-field="o.payment_method_id.name"/>
+                        <strong>طريقة السداد: </strong><span t-field="o.payment_method_id.name"/>
                     </div>
                 </div>
                 <div class="row mb64">
