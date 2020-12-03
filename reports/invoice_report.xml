@@ -22,12 +22,33 @@
                 <p style="line-height:0.2;">تدفئة وتبريد - جملة ومفرد - استيراد وتصدير</p>
                 <p style="line-height:0.2;"> HOME EQUIPMENTS&amp;SPARE PARTS TRADE</p>
                 <p style="line-height:0.2;">Air Conditioning - Wholesale - Single - Import - Export</p>
+                <p style="line-height:0.2;">Tel: 8867516 - 8867517</p>
               </div>
 
             </div>
         </xpath> 
 
-        <xpath expr="//div[@name='company_address']//.." position="replace"/>
+        <xpath expr="//div[@name='company_address']//.." position="replace">
+          <div class="row" style="margin-top: 10px;">
+            <div class="col-4">
+              <p align="right" style="line-height: 0.07;">رقم الشركة 07736264163</p>
+              <p align="right" style="line-height: 0.07;">رقم الإدارة 07901103487</p>
+              <p align="right" style="line-height: 0.07;">محمد شنون 07712700870</p>
+            </div>
+
+            <div class="col-4">
+              <p align="center" style="line-height: 0.07; font-weight: bold;">مبيعات</p>
+              <p align="center" style="line-height: 0.07;">07834036241</p>
+              <p align="center" style="line-height: 0.07;">07736737091</p>
+            </div>
+
+            <div class="col-4">
+              <p align="left" style="line-height: 0.07;">Email: nuboogh_2003@yahoo.com</p>
+              <p align="left" style="line-height: 0.07;">info@nuboogh.com</p>
+              <p align="left" style="line-height: 0.07;">www.nuboogh.com</p>
+            </div>
+          </div>
+        </xpath>
 
         <xpath expr="//t[@t-call='web.address_layout']//.." position="attributes">
           <attribute name="style">margin-bottom: 5px;</attribute>          
@@ -39,6 +60,7 @@
 
 
     <template id="nuboogh_invoice_report" inherit_id="account.report_invoice_document"> 
+
       <xpath expr="//div[@id='informations']//div[@name='origin']" position="after">
         <div class="col-auto mw-100 mb-2" t-if="o.warehouse_location_id.location_id">
           <strong>
@@ -62,26 +84,26 @@
         <attribute name="align">right</attribute>          
       </xpath>
 
-
-      <!-- REMOVE UNWANTED LINES -->
+      <xpath expr="//table[@name='invoice_line_table']//th[@name='th_description']//span" position="replace">
+        <span>الصنف الأول</span>
+      </xpath>
       <xpath expr="//table[@name='invoice_line_table']//th[@name='th_taxes']" position="replace"/>
       <xpath expr="//tbody[@class='invoice_tbody']//t[@name='account_invoice_line_accountable']//td[@t-if='display_discount']" position="replace"/>
       <xpath expr="//table[@name='invoice_line_table']//th[@name='th_price_unit']" position="replace"/>
       <xpath expr="//tbody[@class='invoice_tbody']//t[@name='account_invoice_line_accountable']//span[@id='line_tax_ids']//.." position="replace"/>
 
       <xpath expr="//table[@name='invoice_line_table']//th[@name='th_description']" position="after" >
-        <th name="th_type" class="text-right"><span>نوع المنتج</span></th> 
+        <th name="th_type" class="text-right"><span>الصنف الثاني</span></th> 
         <th name="th_cofo" class="text-right"><span>بلد المنشأ </span></th> 
       </xpath>
       
-      
       <xpath expr="//tbody[@class='invoice_tbody']//t[@name='account_invoice_line_accountable']//td[1]" position="after">                            
         <td name='line.type' class="text-right" >
-          <span t-field='line.product_id.product_type' />
+          <span t-field='line.product_id.product_type'/>
         </td>
-                              
+
         <td name='line.origin' class="text-right">
-          <span t-field='line.product_id.country_of_origin' />
+          <span t-field='line.product_id.country_of_origin'/>
         </td>
       </xpath>
 
@@ -96,25 +118,31 @@
         </tr>
       </xpath>
 
-  <!--       
-      <xpath expr="//div[@id='total']//table//tr" position="before">
-          <tr class="border-black o_total">
-            <td >
-                <strong class="orisdi">  المبلغ المستحق </strong>
-                </td>
-                <td class="text-right">
-            <span t-esc="o.partner_id.total_due-o.amount_total"/>
-            </td>
-          </tr>
-            </xpath>  -->
-    
 
+      <xpath expr="//div[@id='total']" position="after">
+				 	<div t-if="o.previous_customer_debit" class="row col-6" style="margin-bottom: 99px; margin-top: -99px;">
 
-        
+						<table class="table table-sm">
+								<tr class="border-black o_subtotal" style="">
+										<td><strong>الديون السابقة</strong></td>
+										<td class="text-right">
+												<span t-field="o.previous_customer_debit"/>
+										</td>
+								</tr>
+								<tr class="border-black o_total">
+										<td><strong>الديون الحالية</strong></td>
+										<td class="text-right">
+												<span t-field="o.partner_id.total_due"/>
+										</td>
+								</tr>
+						</table>
+					</div>
+      </xpath>
+
+      <xpath expr="//p[@name='payment_communication']" position="replace"/>
+      <xpath expr="//p[@name='payment_term']" position="replace"/>
+
     </template>
-
-
-
 
 </data>
 </odoo>

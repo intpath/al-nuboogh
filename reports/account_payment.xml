@@ -1,0 +1,62 @@
+<odoo>
+  <data>
+    <template id="report_payment_without_table">
+      <t t-name="al-nuboogh.report_payment_without_table">
+          <t t-call="web.html_container">
+              <t t-foreach="docs" t-as="o">
+                  <t t-set="lang" t-value="o.partner_id.lang or o.company_id.partner_id.lang"/>
+                  <t t-call="al-nuboogh.report_payment_receipt_without_table_document" t-lang="lang"/>
+              </t>
+          </t>
+      </t>
+    </template>
+
+    <template id="report_payment_receipt_without_table_document">
+      <t t-name="al-nuboogh.report_payment_receipt_without_table_document">
+          <t t-call="web.external_layout">
+              <t t-set="o" t-value="o.with_context(lang=lang)"/>
+              <div class="page">
+                  <h3><strong>Payment Receipt: <span t-field="o.name"/></strong></h3>
+                  <div class="row mt64">
+                      <div class="col-6" t-if="o.date">
+                          <strong>Payment Date: </strong> <span t-field="o.date"/>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-6" t-if="o.partner_type">
+                          <t t-if="o.partner_type == 'customer'">
+                              <strong>Customer: </strong>
+                          </t>
+                          <t t-if="o.partner_type == 'supplier'">
+                              <strong>Vendor: </strong>
+                          </t><span t-field="o.partner_id"/>
+                      </div>
+                      <div class="col-6" t-if="o.payment_method_id">
+                          <strong>Payment Method: </strong><span t-field="o.payment_method_id.name"/>
+                      </div>
+                  </div>
+                  <div class="row mb64">
+                      <div class="col-6" t-if="o.amount">
+                          <strong>Payment Amount: </strong><span t-field="o.amount" t-options="{'widget': 'monetary', 'display_currency': o.currency_id}"/>
+                      </div>
+                      <div class="col-6" t-if="o.ref">
+                          <strong>Memo: </strong><span t-field="o.ref"/>
+                      </div>
+                  </div>
+              </div>
+          </t>
+      </t>
+    </template>
+
+    <report
+        id="account_payment_without_table_report"
+        model="account.payment"
+        string="Payment Reciept Without Table"
+        name="al-nuboogh.report_payment_without_table"
+        report_type="qweb-pdf"
+        print_report_name="object.name"
+    />
+
+
+  </data>
+</odoo>
