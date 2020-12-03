@@ -31,7 +31,7 @@
         </xpath> 
 
         <xpath expr="//div[@name='company_address']//.." position="replace">
-          <div class="row" style="margin-top: 20px;">
+          <div class="row" style="margin-top: 20px; padding-bottom: 40px;">
             <div class="col-4">
               <p align="right" style="line-height: 0.07;">رقم الشركة 07736264163</p>
               <p align="right" style="line-height: 0.07;">رقم الإدارة 07901103487</p>
@@ -56,6 +56,10 @@
           <attribute name="style">margin-bottom: 5px; margin-right: -1200px;</attribute>
           <attribute name="align">right</attribute>          
         </xpath>
+
+        <!-- REMOVING THE FOOTER -->
+        <xpath expr="//div[@name='financial_infos']//..//.." position="replace"/>
+          
     </template>
 
 
