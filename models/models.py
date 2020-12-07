@@ -37,3 +37,4 @@ class ProductTemplateExt(models.Model):
     product_type = fields.Char(string="الموديل")
     country_of_origin = fields.Char(string="بلد المنشأ")        
     product_name_2 = fields.Char(string="الاسم الثاني للمنتج")
+    name_en = fields.Char(string=" اسم المادة بالانكليزي")
