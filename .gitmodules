@@ -27,3 +27,8 @@
 	path = intpath/product_bundle_pack
 	url = git@github.com:intpath/product_bundle_pack.git
 	branch = 14
+
+[submodule "intpath/report_stock_inventory"]
+	path = intpath/report_stock_inventory
+	url = git@github.com:intpath/report_stock_inventory.git
+	branch = nuboogh
