@@ -32,6 +32,10 @@
                 <strong>الرصيد بعد التسديد: </strong> <span t-field="o.partner_id.total_due"/>
             </div>
         </xpath>
+
+        <xpath expr="//span[@t-field='o.amount']" position="attributes">
+            <attribute name="style">font-size: x-large; text-shadow: 1px 1px gray;</attribute>
+        </xpath>
     </template>
 
     <template id="report_payment_without_table">
@@ -71,7 +75,7 @@
                 </div>
                 <div class="row mb64">
                     <div class="col-6" t-if="o.amount">
-                        <strong>مبلغ السداد: </strong><span t-field="o.amount" t-options="{'widget': 'monetary', 'display_currency': o.currency_id}"/>
+                        <strong>مبلغ السداد: </strong><span style="font-size: x-large; text-shadow: 1px 1px gray;" t-field="o.amount" t-options="{'widget': 'monetary', 'display_currency': o.currency_id}"/>
                     </div>
                     <div class="col-6" t-if="o.ref">
                         <strong>الملاحظة: </strong><span t-field="o.ref"/>

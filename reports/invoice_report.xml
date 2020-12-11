@@ -90,7 +90,7 @@
       </xpath>
 
       <xpath expr="//table[@name='invoice_line_table']//th[@name='th_description']//span" position="replace">
-        <span>الصنف الأول</span>
+        <span>إسم المادة</span>
       </xpath>
       <xpath expr="//table[@name='invoice_line_table']//th[@name='th_taxes']" position="replace"/>
       <xpath expr="//tbody[@class='invoice_tbody']//t[@name='account_invoice_line_accountable']//td[@t-if='display_discount']" position="replace"/>
@@ -98,7 +98,7 @@
       <xpath expr="//tbody[@class='invoice_tbody']//t[@name='account_invoice_line_accountable']//span[@id='line_tax_ids']//.." position="replace"/>
 
       <xpath expr="//table[@name='invoice_line_table']//th[@name='th_description']" position="after" >
-        <th name="th_type" class="text-right"><span>الصنف الثاني</span></th>
+        <th name="th_type" class="text-right"><span>إسم المادة 2</span></th>
         <th name="th_type" class="text-right"><span>الموديل</span></th>
         <th name="th_cofo" class="text-right"><span>بلد المنشأ </span></th> 
       </xpath>
