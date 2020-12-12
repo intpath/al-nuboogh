@@ -4,6 +4,7 @@
     <template id="second_inventory_custom_external_layout">
         <div t-attf-class="header o_company_#{company.id}_layout">
             <div class="row mt32 mb20" id="informations" style="font-family: Arial, serif;">
+		    
                 <div align="left" class="col-5">
                  <h2>
                         Al-nuboogh
@@ -11,7 +12,6 @@
                       <p style="font-size:20px ; padding-bottom: 10px;">
                             HOME EQUIPMENTS AND SPARE PARTS TRADE
                         </p>
-                <!-- <div style="border-bottom: 1px solid black;"/> -->
                 </div>
 
                 <div align="center" class="col-2 text-center">
@@ -20,7 +20,6 @@
 
                 <div align="right" class="col-5 " style="float:right;">
                     <h2>
-                    
                        شركة النبوغ
                     </h2>
                      <p style="font-size:20px; padding-bottom: 10px;">
@@ -47,6 +46,8 @@
 
         <t t-if="not company">
 
+		
+		
             <!-- Multicompany -->
             <t t-if="company_id">
                 <t t-set="company" t-value="company_id"/>
