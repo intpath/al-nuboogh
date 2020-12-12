@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="second_inventory_custom_external_layout">
+        <div t-attf-class="header o_company_#{company.id}_layout">
+            <div class="row mt32 mb20" id="informations" style="font-family: Arial, serif;">
+                <div align="left" class="col-5">
+                 <h2>
+                        Al-nuboogh
+                    </h2>
+                      <p style="font-size:20px ; padding-bottom: 10px;">
+                            HOME EQUIPMENTS AND SPARE PARTS TRADE
+                        </p>
+                <!-- <div style="border-bottom: 1px solid black;"/> -->
+                </div>
+
+                <div align="center" class="col-2 text-center">
+                    <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" class="img " alt="Logo" style="width:170px; height:100px"/>
+                </div>
+
+                <div align="right" class="col-5 " style="float:right;">
+                    <h2>
+                       شركة النبوغ
+                    </h2>
+                     <p style="font-size:20px; padding-bottom: 10px;">
+                            للتجارة العامة المحدودة
+                        </p>
+                </div>
+
+            </div>
+                <div style="border-bottom: 1px solid black;"/>
+        </div>
+
+
+        <div class="article o_report_layout_standard" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
+            <t t-call="web.address_layout"/>
+            <t t-raw="0"/>
+        </div>
+    </template>
+
+	<template id="inventory_custom_external_layout">
+
+        <t t-if="not o" t-set="o" t-value="doc"/>
+
+        <t t-if="not o" t-set="o" t-value="doc"/>
+
+        <t t-if="not company">
+
+            <!-- Multicompany -->
+            <t t-if="company_id">
+                <t t-set="company" t-value="company_id"/>
+            </t>
+            <t t-elif="o and 'company_id' in o">
+                <t t-set="company" t-value="o.company_id.sudo()"/>
+            </t>
+            <t t-else="else">
+                <t t-set="company" t-value="res_company"/>
+            </t>
+        </t>
+
+<!--         <t t-esc="company.update_scss()"/> -->
+
+        <t t-call="report_stock_inventory.second_inventory_custom_external_layout">
+            <t t-raw="0"/>
+        </t>
+    </template>
+
+
+    <template id="report_stock_pdf">
+        <t t-call="web.html_container">
+            <t t-call="report_stock_inventory.inventory_custom_external_layout">
+                <div class="page">
+                  <br></br>
+                <div class="row" style="font-size: large;">
+                     <div class="col">
+                                    <strong style="color: #0C56A4; direction: rtl;">التاريخ:</strong>
+                                    <span style="margin: 20px !important;"><t t-esc="inventory_date"/></span>
+                                </div>
+                       </div>
+
+                        <div class="row" style="font-size:large;">
+                            <div class="col">
+                                <t t-if="loc_name">
+                                        <strong style="text-align:right; direction:rtl;" align="right">: الموقع  </strong>
+                                        <span style="margin: 20px !important;"> <t t-esc="loc_name"/></span>
+                                </t>
+                            </div> 
+                        </div>
+
+
+
+			<!--             <table t-if="locations" class="table table-condensed">
+                        	                <thead>
+                                	            <tr>
+                                               
+                                                <th align="right">الدليل المحاسبي </th>
+                                                <th align="right">القيمة </th>
+                                                <th align="right">اعداد المواد</th>
+                                                <th align="right"> إجمالي الكمية</th>
+                                                <th align="right"> المستودع</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr t-foreach="locations" t-as="item">
+                            
+                                                <td align="left">
+                                                    <span t-esc="item['accounting_number']"/>
+                                                </td>
+                                                <td align="left">
+                                                    <span t-esc="item['value_2']"/>
+                                                </td>
+
+                                                <td align="left">
+                                                    <span t-esc="item['material']"/>
+                                                </td>
+
+                                                <td align="left">
+                                                    <span t-esc="item['value']"/>
+                                                </td>
+
+                                                <td align="left">
+                                                    <span t-esc="item['name']"/>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table> -->
+
+		<!--
+                    <t t-if="categ_name">
+                        <div class="row mt12" style="font-family: Arial !important; font-size: large;">
+                            <div class="col-xs-3">
+                                <strong style="color: #0C56A4;">القسم:</strong>
+                                <t t-esc="categ_name"/>
+                            </div>
+                        </div>
+                    </t>
+		-->
+
+                </div>
+                <br/>
+                
+                <t t-if="docs">
+                    <table t-if="include_lines" class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th align="right">الكمية</th>
+			        <th align="right">الموقع</th>
+                                <th style="text-align: center;">اسم المادة ١</th>                                
+                                <th style="text-align: center;">اسم المادة ٢</th>
+                                <th align="right">الرقم الرمزي</th>
+                                <th align="right">رقم</th>
+
+                                <!-- <th align="left">Unit</th> -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-set="s_no" t-value="0"/>
+                            <tr t-foreach="docs" t-as="line">
+                                <t t-set="s_no" t-value="s_no+1"/>
+                           
+                                <td align="right">
+                                    <span t-esc="float('%.2f' % float(line['quantity'])) "/>
+                                </td>
+				<td align="left">
+                                    <span t-esc="line['loc_name']"/>
+                                </td>
+				<td align="left">
+                                    <span t-esc="line['name']"/>
+                                </td>
+				 <td align="left">
+                                    <span t-esc="line['product_name_2']"/>
+                                </td> 
+                            	
+                                <td align="left">
+                                    <span t-esc="line['default_code']"/>
+                                </td>
+				<td align="left">
+                                    <span t-esc="s_no"/>
+                                </td>	    
+				    
+                                <td align="left">
+                                    <span t-="_tran_unit(line['unit'])"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+
+                    <t t-set="total" t-value="0"/>
+                    <t t-foreach="docs" t-as="line">
+                        <t t-esc="total" t-value="total + line['quantity']"/>
+                    </t>
+                    <div style="background: red; direction: rtl; text-align; right; font-size:  xx-large;">
+                                  إجمالي الكميات  : <span t-esc='toal'/>
+                    </div>
+                </t>
+                <t t-if="doc_quantities">
+                    <table t-if="include_lines" class="table table-condensed">
+                        <thead class="mt12">
+                            <tr style="font-family: Arial !important;">
+                                <!-- <th align="left">Internal Reference</th> -->
+                                <!-- <th align="left">Product</th> -->
+                                <!-- <th align="left">Location</th> -->
+                                <th style="text-align: center;">الكمية</th>
+			                    <th style="text-align: center;">اسم المادة ١</th>
+			                    <th style="text-align: center;">اسم المادة ٢</th>
+                                <th style="text-align: center;">الرقم الرمزي</th>
+                                <th style="text-align: center;">التكلفة</th>
+
+
+                                <!-- <th align="right">Quantity</th> -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-set="s_no" t-value="0"/>
+                            <tr t-foreach="doc_quantities" t-as="line">
+
+                                <t t-set="s_no" t-value="s_no+1"/>
+                                <td style="text-align: center;">
+                                    <span t-esc="float('%.2f' % float(line['loc_total']))"/>
+                                </td>
+				 <td style="text-align: center;">
+                                    <span t-esc="line['name']"/>
+                                </td>
+				 <td style="text-align: center;">
+                                    <span t-esc='line["product_name_2"]'/>
+                                </td>
+				 <td style="text-align: center;">
+                                    <span t-esc="line['default_code']"/>
+                                </td>
+				 <td style="text-align: center;">
+                                    <span t-esc="line['standard_price']"/>
+                                </td>    
+                            </tr>
+                        </tbody>
+                    </table>
+                    <t t-set="total" t-value="0"/>
+                    <t t-foreach="doc_quantities" t-as="line">
+                        <t t-set="total" t-value="total + line['loc_total']"/>
+                    </t>
+                    <div>
+                        <div style="font-size: large; direction: rtl; text-align; right; width: 250px; margin-left: 70%;">
+                            <strong style="color: #0C56A4;">   إجمالي الكميات :</strong>
+                            <t t-esc="total" />
+                        </div>
+                    </div>
+
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
