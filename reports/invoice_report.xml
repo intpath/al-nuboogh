@@ -18,7 +18,7 @@
 
 
               <div class="col-8 mb-2" style="width: 50%; margin-right: 120px; margin-top: 10px;">
-                <div align="left" style="padding-right: 90px;" t-if="company.id==1" >
+                <div align="right" style="padding-right: 90px;" t-if="company.id==1" >
                   <p style="font-weight: bold; line-height:0.2;">تجارة الادوات الاحتياطية والمنزلية</p>
                   <p style="font-size: small; line-height:0.1;">تدفئة وتبريد - جملة ومفرد - استيراد وتصدير</p>
                   <p style="font-size: small; line-height:0.1;">HOME EQUIPMENTS &amp; SPARE PARTS TRADE</p>
@@ -26,8 +26,8 @@
                   <p style="font-size: small; line-height:0.1;">Tel: 8867516 - 8867517</p>
                 </div>
 
-                <div align="left" style="padding-right: 90px;" t-if="company.id==3">
-                  <h3 style="font-weight: bold; line-height:0.3;">   شركة النبوغ فرع الكفاح  </h3>
+                <div align="right" style="padding-right: 90px;" t-if="company.id==3">
+                  <h5 style="font-weight: bold; line-height:0.2;">   شركة النبوغ فرع الكفاح  </h5>
                   <p style="font-weight: bold; line-height:0.2;">تجارة الادوات الاحتياطية والمنزلية</p>
                   <p style="font-size: small; line-height:0.1;">تدفئة وتبريد - جملة ومفرد - استيراد وتصدير</p>
                   <p style="font-size: small; line-height:0.1;">HOME EQUIPMENTS &amp; SPARE PARTS TRADE</p>
@@ -35,8 +35,8 @@
                   <p style="font-size: small; line-height:0.1;">Tel: 8867516 - 8867517</p>
                 </div>
              
-                 <div align="left" style="padding-right: 90px;" t-if="company.id==2">
-                  <h3 style="font-weight: bold; line-height:0.3;">   شركة النبوغ فرع اربيل   </h3>
+                 <div align="right" style="padding-right: 90px;" t-if="company.id==2">
+                  <h5 style="font-weight: bold; line-height:0.2;">   شركة النبوغ فرع اربيل   </h5>
                   <p style="font-weight: bold; line-height:0.2;">تجارة الادوات الاحتياطية والمنزلية</p>
                   <p style="font-size: small; line-height:0.1;">تدفئة وتبريد - جملة ومفرد - استيراد وتصدير</p>
                   <p style="font-size: small; line-height:0.1;">HOME EQUIPMENTS &amp; SPARE PARTS TRADE</p>
@@ -44,8 +44,8 @@
                   <p style="font-size: small; line-height:0.1;">Tel: 8867516 - 8867517</p>
                 </div>
              
-                <div align="left" style="padding-right: 90px;" t-if="company.id==5">
-                  <h3 style="font-weight: bold; line-height:0.3;">  النبوغ/ معرض البركة  </h3>
+                <div align="right" style="padding-right: 90px;" t-if="company.id==5">
+                  <h5 style="font-weight: bold; line-height:0.2;">  النبوغ/ معرض البركة  </h5>
                   <p style="font-weight: bold; line-height:0.2;">تجارة الادوات الاحتياطية والمنزلية</p>
                   <p style="font-size: small; line-height:0.1;">تدفئة وتبريد - جملة ومفرد - استيراد وتصدير</p>
                   <p style="font-size: small; line-height:0.1;">HOME EQUIPMENTS &amp; SPARE PARTS TRADE</p>
@@ -54,8 +54,8 @@
                 </div>
                       
                       
-                <div align="left" style="padding-right: 90px;" t-if="company.id==6">
-                  <h3 style="font-weight: bold; line-height:0.3;">  النبوغ/ عكد النصارى   </h3>
+                <div align="right" style="padding-right: 90px;" t-if="company.id==6">
+                  <h5 style="font-weight: bold; line-height:0.2;">  النبوغ/ عكد النصارى   </h5>
                   <p style="font-weight: bold; line-height:0.2;">تجارة الادوات الاحتياطية والمنزلية</p>
                   <p style="font-size: small; line-height:0.1;">تدفئة وتبريد - جملة ومفرد - استيراد وتصدير</p>
                   <p style="font-size: small; line-height:0.1;">HOME EQUIPMENTS &amp; SPARE PARTS TRADE</p>
@@ -63,8 +63,8 @@
                   <p style="font-size: small; line-height:0.1;">Tel: 8867516 - 8867517</p>
                 </div>
              
-                <div align="left" style="padding-right: 90px;" t-if="company.id==9">
-                  <h3 style="font-weight: bold; line-height:0.3;">  النبوغ/ شركة الكوثر   </h3>
+                <div align="right" style="padding-right: 90px;" t-if="company.id==9">
+                  <h5 style="font-weight: bold; line-height:0.2;">  النبوغ/ شركة الكوثر   </h5>
                   <p style="font-weight: bold; line-height:0.2;">تجارة الادوات الاحتياطية والمنزلية</p>
                   <p style="font-size: small; line-height:0.1;">تدفئة وتبريد - جملة ومفرد - استيراد وتصدير</p>
                   <p style="font-size: small; line-height:0.1;">HOME EQUIPMENTS &amp; SPARE PARTS TRADE</p>
@@ -72,13 +72,12 @@
                   <p style="font-size: small; line-height:0.1;">Tel: 8867516 - 8867517</p>
                 </div>
 
-                <div align="left" style="padding-right: 90px;" t-if="company.id==4">
-                  <h3 style="font-weight: bold; line-height:0.3;">  النبوغ /احمد المحبوب </h3>
-                  <p style="font-weight: bold; line-height:0.2;">تجارة الادوات الاحتياطية والمنزلية</p>
-                  <p style="font-size: small; line-height:0.1;">تدفئة وتبريد - جملة ومفرد - استيراد وتصدير</p>
-                  <p style="font-size: small; line-height:0.1;">HOME EQUIPMENTS &amp; SPARE PARTS TRADE</p>
-                  <p style="font-size: small; line-height:0.1;">Air Conditioning - Wholesale - Single - Import - Export</p>
-                  <p style="font-size: small; line-height:0.1;">Tel: 8867516 - 8867517</p>
+                <div align="right" style="padding-right: 90px;" t-if="company.id==4">
+                  <h5 style="font-weight: bold; line-height:0.2;">  النبوغ /احمد المحبوب </h5>
+                  <p style="font-weight: bold; line-height:0.2;">تجارة عامة          <br/> 
+                     اجهزة منزلية - ادوات احتياطية  </p>
+                  <p style="font-size: small; line-height:0.1;">  بغداد - السنك - مجاور شركة سامسونج سابقا   </p>
+                  <p style="font-size: small; line-height:0.1;">Tel: 07901592236 </p>
                 </div>
 
               </div>
