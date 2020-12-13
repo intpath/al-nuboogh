@@ -8,15 +8,15 @@ class Cus_nuboogh(models.Model):
     warehouse_location_id = fields.Many2one('stock.picking',compute='calc_warehouse_location_id')
     total_qty = fields.Integer(compute="count_sold_item")  
     invoice_type = fields.Selection([('monetory', 'نقدي'), ('temem','ذمم')] , string="نوع الفاتورة" , default="temem")
-    previous_customer_debit = fields.Monetary(compute="_get_prev_debit")
+    # previous_customer_debit = fields.Monetary(compute="_get_prev_debit")
 
-    @api.onchange("partner_id")
-    def _get_prev_debit(self):
-        if self.partner_id:
-            invoice_payed_amount = self.amount_total - self.amount_residual
-            self.previous_customer_debit = self.partner_id.total_due + invoice_payed_amount
-        else:
-            self.previous_customer_debit = False
+    # @api.onchange("partner_id")
+    # def _get_prev_debit(self):
+    #     if self.partner_id:
+    #         invoice_payed_amount = self.amount_total - self.amount_residual
+    #         self.previous_customer_debit = self.partner_id.total_due + invoice_payed_amount
+    #     else:
+    #         self.previous_customer_debit = False
 
 
     @api.depends("partner_id")

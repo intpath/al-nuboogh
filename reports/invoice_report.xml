@@ -136,7 +136,7 @@
 								<tr class="border-black o_subtotal" style="">
 										<td><strong>الديون السابقة</strong></td>
 										<td class="text-right">
-												<span t-field="o.previous_customer_debit"/>
+												<!-- <span t-field="o.previous_customer_debit"/> -->
 										</td>
 								</tr>
 								<tr class="border-black o_total">
