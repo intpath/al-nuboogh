@@ -13,10 +13,10 @@
         <xpath expr="//div[@t-att-style='report_header_style']//div[1]" position="replace">          
           
             <div class="row ml-4" style="width: 100%;">
-              <div align="center" class="col-4" style="width: 50%;">
+             
+		<div align="center" class="col-4" style="width: 50%;">
                 <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="min-height: 80px; max-height: 80px;" alt="Logo"/>
               </div>
-
 
                      <div t-if="company.id==2" class="col-4 mt-4" align="center"> 
                           <p style="font-weight: small; line-height:0.1;"> كومبانياى نبوغ </p>
@@ -25,7 +25,8 @@
                     </div>
 
               <div class="col-8 mb-4" style="width: 50%; margin-right: 120px; margin-top: 10px;">
-                <div align="right" style="padding-right: 100px;" t-if="company.id==1" >
+               
+		  <div align="right" style="padding-right: 100px;" t-if="company.id==1" >
                   <p style="font-weight: small; line-height:0.6;">تجارة الادوات الاحتياطية والمنزلية</p>
                   <p style="font-size: small; line-height:0.1;">تدفئة وتبريد - جملة ومفرد - استيراد وتصدير</p>
                   <p style="font-size: small; line-height:0.1;">HOME EQUIPMENTS &amp; SPARE PARTS TRADE</p>
@@ -35,19 +36,12 @@
 
                 <div align="right" style="padding-right: 100px;" t-if="company.id==3">
                   <h5 style="font-weight: bold; line-height:0.2; margin-bottom:10px;">   شركة النبوغ فرع الكفاح  </h5>
-                  <!-- <p style="font-weight: small; line-height:0.6;">تجارة الادوات الاحتياطية والمنزلية</p>
-                  <p style="font-size: small; line-height:0.1;">تدفئة وتبريد - جملة ومفرد - استيراد وتصدير</p>
-                  <p style="font-size: small; line-height:0.1;">HOME EQUIPMENTS &amp; SPARE PARTS TRADE</p>
-                  <p style="font-size: small; line-height:0.1;">Air Conditioning - Wholesale - Single - Import - Export</p>
-                  <p style="font-size: small; line-height:0.1;">8867516 - 8867517  : الهاتف</p> -->
                 </div>
              
                  <div align="right" t-if="company.id==2">
                   <h5 style="line-height:normal;">   شركة النبوغ فرع اربيل   </h5>
                   <p style="font-weight: small; line-height:0.6;"> للتجارة العامة المحدودة </p>
                   <p style="font-size: small; line-height:0.1;">تدفئة وتبريد - جملة ومفرد - استيراد وتصدير</p>
-                  <!-- <p style="font-size: small; line-height:0.1;">HOME EQUIPMENTS &amp; SPARE PARTS TRADE</p> -->
-                  <!-- <p style="font-size: small; line-height:0.1;">Air Conditioning - Wholesale - Single - Import - Export</p> -->
                   <p style="font-size: small; line-height:0.1;"> 07506687070 - 07702333108 - 07504698770  </p>
                 </div>
              
@@ -68,9 +62,6 @@
                   <h5 style="line-height:normal;">  النبوغ/ شركة الكوثر   </h5>
                   <p style="font-weight: small; line-height:normal;">     استيراد منظومات المياه و قطع الغيار التايونية الاصلية  </p>
                   <p style="font-size: small; line-height:0.1;">   بغداد - السنك - سوق التبريد   </p>
-            <!--      <p style="font-size: small; line-height:0.1;">HOME EQUIPMENTS &amp; SPARE PARTS TRADE</p>
-                  <p style="font-size: small; line-height:0.1;">Air Conditioning - Wholesale - Single - Import - Export</p>
-                  <p style="font-size: small; line-height:0.1;">Tel: 8867516 - 8867517</p> -->
                 </div>
 
                 <div align="right" style="padding-right: 100px;" t-if="company.id==4">
@@ -80,7 +71,10 @@
                     <p style="font-size: small; line-height:0.1;">  بغداد - السنك - مجاور شركة سامسونج سابقا  </p>
                     <p style="font-size: small; line-height:0.1;"> 07901592236 - 07724625643 </p>
                 </div>
+		      
               </div>
+			<!-- END OF THE HEADER DIV  -->
+	</div>
 
         </xpath> 
 
