@@ -24,7 +24,7 @@
                           <p style="font-weight: small; line-height:0.1;">  فرع اربيل\ اقليم كردستان العراق </p> 
                     </div>
 
-              <div class="col-8 mb-4" style="width: 50%; margin-right: 120px; margin-top: 10px;">
+              <div class="col-8 mb-4" style="width: 50%; margin-top: 10px;">
                
 		  <div align="right" style="padding-right: 100px;" t-if="company.id==1" >
                   <p style="font-weight: small; line-height:0.6;">تجارة الادوات الاحتياطية والمنزلية</p>
