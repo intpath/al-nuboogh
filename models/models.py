@@ -5,7 +5,7 @@ from odoo.exceptions import UserError
 
 class Cus_nuboogh(models.Model):
     _inherit="account.move"
-    warehouse_location_id = fields.Many2one('stock.location',compute='calc_warehouse_location_id')
+    warehouse_location_id = fields.Many2one('stock.picking',compute='calc_warehouse_location_id')
     total_qty = fields.Integer(compute="count_sold_item")  
     invoice_type = fields.Selection([('monetory', 'نقدي'), ('temem','ذمم')] , string="نوع الفاتورة" , default="temem")
     previous_customer_debit = fields.Monetary(compute="_get_prev_debit")
@@ -21,7 +21,7 @@ class Cus_nuboogh(models.Model):
 
     @api.depends("partner_id")
     def calc_warehouse_location_id(self):
-        transfers=self.env["stock.location"].search([("origin","=",self.name)],limit=1)
+        transfers=self.env["stock.picking"].search([("origin","=",self.name)],limit=1)
         self.warehouse_location_id = transfers.id
 
     @api.depends("invoice_line_ids")
