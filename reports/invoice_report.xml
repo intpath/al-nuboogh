@@ -168,7 +168,7 @@
           </div>
 
 
-          <div class="col-auto mw-100 mb-2" t-if="o.invoice_type">
+          <div class="col-auto mw-100 mb-2" t-if="o.user_id.name">
             <strong>
             مسؤول المبيعات  :  
             </strong>
