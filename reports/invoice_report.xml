@@ -240,7 +240,7 @@
             مسؤول المبيعات  :  
             </strong>
             <br/>
-            <p t-field="o.sales_person"></p>
+            <p t-field="o.user_id.name"></p>
           </div>
         </xpath>
 
