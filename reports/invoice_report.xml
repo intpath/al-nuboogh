@@ -13,8 +13,9 @@
         <xpath expr="//div[@t-att-style='report_header_style']//div[1]" position="replace">          
           
             <div class="row ml-4" style="width: 100%;">
-             
-		<div align="center" class="col-4" style="width: 50%;">
+             			<!-- START OF THE HEADER DIV  -->
+
+	        	<div align="center" class="col-4" style="width: 50%;">
                 <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="min-height: 80px; max-height: 80px;" alt="Logo"/>
               </div>
 
