@@ -34,7 +34,7 @@
         </xpath>
 
         <xpath expr="//span[@t-field='o.amount']" position="attributes">
-            <attribute name="style">font-size: x-large; text-shadow: 2px 2px 4px gray;</attribute>
+            <attribute name="style">font-size: x-large; text-shadow: 1px 1px gray;</attribute>
         </xpath>
     </template>
 
@@ -75,7 +75,7 @@
                 </div>
                 <div class="row mb64">
                     <div class="col-6" t-if="o.amount">
-                        <strong>مبلغ السداد: </strong><span style="font-size: x-large; text-shadow: 2px 2px 4px gray;" t-field="o.amount" t-options="{'widget': 'monetary', 'display_currency': o.currency_id}"/>
+                        <strong>مبلغ السداد: </strong><span style="font-size: x-large; text-shadow: 1px 1px gray;" t-field="o.amount" t-options="{'widget': 'monetary', 'display_currency': o.currency_id}"/>
                     </div>
                     <div class="col-6" t-if="o.ref">
                         <strong>الملاحظة: </strong><span t-field="o.ref"/>
