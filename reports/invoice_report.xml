@@ -27,7 +27,7 @@
 
               <div class="col-8 mb-4" style="width: 50%; margin-top: 10px;">
                
-		  <div align="right" style="padding-right: 100px;" t-if="company.id==1" >
+		  <div align="right" style="padding-right:90px;" t-if="company.id==1" >
                   <p style="font-weight: small; line-height:0.6;">تجارة الادوات الاحتياطية والمنزلية</p>
                   <p style="font-size: small; line-height:0.1;">تدفئة وتبريد - جملة ومفرد - استيراد وتصدير</p>
                   <p style="font-size: small; line-height:0.1;">HOME EQUIPMENTS &amp; SPARE PARTS TRADE</p>
@@ -168,7 +168,7 @@
           </div>
 
 
-          <div class="col-auto mw-100 mb-2" t-if="o.invoice_type">
+          <div class="col-auto mw-100 mb-2" t-if="o.user_id.name">
             <strong>
             مسؤول المبيعات  :  
             </strong>
