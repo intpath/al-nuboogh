@@ -38,3 +38,7 @@ class ProductTemplateExt(models.Model):
     country_of_origin = fields.Char(string="بلد المنشأ")        
     product_name_2 = fields.Char(string="الاسم الثاني للمنتج")
     name_en = fields.Char(string=" اسم المادة بالانكليزي")
+
+class UserExt(models.Model):
+    _inherit = 'res.partner'
+    sales_person = fields.Many2one('res.partner')
