@@ -41,4 +41,4 @@ class ProductTemplateExt(models.Model):
 
 class UserExt(models.Model):
     _inherit = 'res.partner'
-    sales_person = fields.Many2one('res.partner')
+    sales_person = fields.Many2one('res.users')
