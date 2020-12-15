@@ -6,7 +6,7 @@
         <div t-attf-class="header" t-att-style="report_header_style">
             <div class="row">
                 <div align="center" class="col-12 mb4">
-                    <img src="/al-nuboogh/static/src/img/payment_logo.jpeg" style="width: 200px;" alt="Logo"/>
+                    <img t-if="o.company_id.logo" t-att-src="image_data_uri(o.company_id.logo)" style="width: 200px;" alt="Logo"/>
                 </div>
             </div>
             <div class="row zero_min_height">
@@ -33,7 +33,13 @@
             </div>
         </xpath>
 
-        <xpath expr="//span[@t-field='o.amount']" position="attributes">
+        <xpath expr="//div[@t-if='o.payment_method_id']" position="replace">
+            <div class="col-6" t-if="o.payment_type">
+                <strong>نوع السداد: </strong><span t-field="o.payment_type"/>
+            </div>
+        </xpath>
+
+        <xpath expr="//div[@t-if='o.amount']" position="attributes">
             <attribute name="style">font-size: x-large; text-shadow: 2px 2px 4px gray;</attribute>
         </xpath>
     </template>
@@ -69,13 +75,13 @@
                             <strong>بائع: </strong>
                         </t><span t-field="o.partner_id"/>
                     </div>
-                    <div class="col-6" t-if="o.payment_method_id">
-                        <strong>طريقة السداد: </strong><span t-field="o.payment_method_id.name"/>
+                    <div class="col-6" t-if="o.payment_type">
+                        <strong>نوع السداد: </strong><span t-field="o.payment_type"/>
                     </div>
                 </div>
                 <div class="row mb64">
-                    <div class="col-6" t-if="o.amount">
-                        <strong>مبلغ السداد: </strong><span style="font-size: x-large; text-shadow: 2px 2px 4px gray;" t-field="o.amount" t-options="{'widget': 'monetary', 'display_currency': o.currency_id}"/>
+                    <div class="col-6" style="font-size: x-large; text-shadow: 2px 2px 4px gray;" t-if="o.amount">
+                        <strong>مبلغ السداد: </strong><span t-field="o.amount" t-options="{'widget': 'monetary', 'display_currency': o.currency_id}"/>
                     </div>
                     <div class="col-6" t-if="o.ref">
                         <strong>الملاحظة: </strong><span t-field="o.ref"/>
