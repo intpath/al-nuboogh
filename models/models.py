@@ -21,8 +21,14 @@ class Cus_nuboogh(models.Model):
 
     @api.depends("partner_id")
     def calc_warehouse_location_id(self):
-        transfers=self.env["stock.picking"].search([("origin","=",self.name)],limit=1)
-        self.warehouse_location_id = transfers.id
+        if self.invoice_origin:
+            transfers=self.env["stock.picking"].search([("origin","=",self.invoice_origin)], limit=1)
+            if transfers:
+                self.warehouse_location_id = transfers.id
+            else:
+                self.warehouse_location_id = False
+        else:
+            self.warehouse_location_id = False
 
     @api.depends("invoice_line_ids")
     def count_sold_item(self):

@@ -1,0 +1,19 @@
+<odoo>
+  <data>
+    <template inherit_id="purchase.report_purchaseorder_document" id="nuboogh_purchase_order_document">
+
+      <xpath expr="//th[@name='th_description']" position="after">
+        <th name="th_name_2" class="text-center"><strong>إسم المادة 2 </strong></th>
+        <th name="th_country_origin" class="text-center"><strong>بلد المنشأ</strong></th>
+        <th name="th_model" class="text-center"><strong>الموديل</strong></th>
+      </xpath>
+
+      <xpath expr="td[@id='product']" position="after">
+        <td name="td_name_2"><span t-field="line.product_id.product_name_2"/></td>
+        <td name="td_country_origin"><span t-field="line.product_id.country_of_origin"/></td>
+        <td name="td_model"><span t-field="line.product_id.product_type"/></td>
+      </xpath>
+
+    </template>
+  </data>
+</odoo>

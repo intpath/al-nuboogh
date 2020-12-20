@@ -82,10 +82,17 @@
         <xpath expr="//div[@name='company_address']//.." position="replace">
 
           <div class="row" style="margin-top: 20px; padding-bottom: 40px;" t-if="company.id==1">
-            <div class="col-4">
-              <p align="right" style="line-height: 0.07;">رقم الشركة 07736264163</p>
-              <p align="right" style="line-height: 0.07;">رقم الإدارة 07901103487</p>
-              <p align="right" style="line-height: 0.07;">محمد شنون 07712700870</p>
+            <div class="col-4 row">
+              <div class="col-5">
+                <p align="right" style="line-height: 0.07;">رقم الشركة</p>
+                <p align="right" style="line-height: 0.07;">رقم الإدارة</p>
+                <p align="right" style="line-height: 0.07;">محمد شنون</p>
+              </div>
+              <div class="col-6">
+                <p align="left" style="line-height: 0.07;">07736264163</p>
+                <p align="left" style="line-height: 0.07;">07901103487</p>
+                <p align="left" style="line-height: 0.07;">07712700870</p>
+              </div>
             </div>
 
             <div class="col-4" style="border-right: solid black 1px; border-left: solid black 1px;">
@@ -104,8 +111,14 @@
 
           <div class="row" style="margin-top: 20px; padding-bottom: 40px;" t-if="company.id==5">
             <div class="col-4">
-              <p align="right" style="line-height: 0.07;">  07726754194  فيصل محمد  </p>
-              <p align="right" style="line-height: 0.07;">  حسين المحبوب 07709085935</p>
+              <div class="col-5">
+                <p align="right" style="line-height: 0.07;">فيصل محمد</p>
+                <p align="right" style="line-height: 0.07;">حسين المحبوب</p>
+              </div>
+              <div class="col-6">
+                <p align="left" style="line-height: 0.07;">07726754194</p>
+                <p align="left" style="line-height: 0.07;">07709085935</p>
+              </div>
             </div>
 
             <div class="col-4" style="border-right: solid black 1px; border-left: solid black 1px;"></div>
@@ -119,8 +132,16 @@
           <div class="row" style="margin-top: 20px; padding-bottom: 40px;" t-if="company.id==9">
             <div class="col-4">
               <p align="right" style="line-height: 0.07;">رقم الشركة 07715179740 - 07803264313 </p>
-              <p align="right" style="line-height: 0.07;">رقم المخزن 07812223070</p>
-              <p align="right" style="line-height: 0.07;">مبيعات الجملة 07713399665</p>
+              <div class="row">
+                <div class="col-5">
+                  <p align="right" style="line-height: 0.07;">رقم المخزن</p>
+                  <p align="right" style="line-height: 0.07;">مبيعات الجملة</p>
+                </div>
+                <div class="col-6">
+                  <p align="left" style="line-height: 0.07;">07812223070</p>
+                  <p align="left" style="line-height: 0.07;">07713399665</p>
+                </div>
+              </div>
             </div>
 
             <div class="col-4" style="border-right: solid black 1px; border-left: solid black 1px;">
@@ -153,7 +174,7 @@
         <xpath expr="//div[@id='informations']//div[@name='origin']" position="after">
           <div class="col-auto mw-100 mb-2" t-if="o.warehouse_location_id.location_id">
             <strong>
-            المخزن:  
+            إسم المخزن :  
             </strong>
             <br/>
             <p t-field="o.warehouse_location_id.location_id"></p>
@@ -250,20 +271,23 @@
               </tr>
             </table>
           </div>
-        </xpath>
 
-
-       <xpath expr="//div[@id='total']//div//table" position="after">
-          <div style=" width:100%; height:400px; margin-top:50%;" align="center">
-            <div style="border-top: solid black 1px;">
-              <p class="text-center"> توقيع و ختم   </p>
+          <div class="row">
+            <div class="col-2 text-center" style="border-bottom: solid black 1px; margin-right: 30px;">
+              <span>
+                التوقيع
+              </span>
+            </div>
+            <div class="col-2 text-center" style="border-bottom: solid black 1px; margin-right: 30px;">
+              <span>
+                الختم
+              </span>
             </div>
           </div>
         </xpath>
 
         <xpath expr="//p[@name='payment_communication']" position="replace"/>
         <xpath expr="//p[@name='payment_term']" position="replace"/>
-
 
       </template>
 

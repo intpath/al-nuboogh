@@ -29,5 +29,7 @@
         'views/templates.xml',
         'reports/invoice_report.xml',
         'reports/account_payment.xml',
+        'reports/sale_order_report.xml',
+        'reports/purhcase_order_report.xml',
     ],
 }
