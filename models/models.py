@@ -41,10 +41,12 @@ class Cus_nuboogh(models.Model):
 class ProductTemplateExt(models.Model):
     _inherit = 'product.template'
     product_type = fields.Char(string="الموديل")
+    product_type_en = fields.Char(string="الموديل بالإنكليزي")
     country_of_origin = fields.Char(string="بلد المنشأ")        
+    country_of_origin_en = fields.Char(string="بلد المنشأ بالإنكليزي")        
     product_name_2 = fields.Char(string="الاسم الثاني للمنتج")
     name_en = fields.Char(string=" اسم المادة بالانكليزي")
-
+    
 # class UserExt(models.Model):
 #     _inherit = 'res.users'
 #     sales_person = fields.Many2one('res.partner')

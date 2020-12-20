@@ -8,7 +8,7 @@
         <th name="th_model" class="text-center">الموديل</th>
       </xpath>
 
-      <xpath expr="td[@name='td_name']" position="after">
+      <xpath expr="//td[@name='td_name']" position="after">
         <td name="td_name_2"><span t-field="line.product_id.product_name_2"/></td>
         <td name="td_country_origin"><span t-field="line.product_id.country_of_origin"/></td>
         <td name="td_model"><span t-field="line.product_id.product_type"/></td>

@@ -31,9 +31,11 @@
             <field name="arch" type="xml">
                 <xpath expr="//notebook//page[@name='general_information']//group//group[@name='group_general']" position="inside">
                   <field name="product_type" />
+                  <field name="product_type_en" />
                   <field name="product_name_2" />
                   <field name="name_en" />
                   <field name="country_of_origin"/>
+                  <field name="country_of_origin_en"/>
                 </xpath>
             </field>
     </record>  
