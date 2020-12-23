@@ -28,6 +28,7 @@
         'views/views.xml',
         'views/templates.xml',
         'reports/invoice_report.xml',
+        'reports/custome_layout.xml',
         'reports/account_payment.xml',
         'reports/sale_order_report.xml',
         'reports/purchase_order_report.xml',

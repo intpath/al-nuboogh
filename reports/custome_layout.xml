@@ -1,0 +1,176 @@
+<odoo>
+  <data>
+    
+    <template id="report_assets_common_custom_fonts" name="Custom QWeb fonts" inherit_id="web.report_assets_common">
+      <xpath expr="." position="inside">
+        <link href="al-nuboogh/static/src/css/fonts.css" rel="stylesheet" type="text/css"/>
+      </xpath>
+    </template>
+
+    <template inherit_id="web.external_layout_standard" id="custom_nuboogh_layout">
+        <xpath expr="//div[@t-att-style='report_header_style']//div[1]" position="replace">          
+          
+            <div class="row ml-4" style="width: 100%;">
+             			<!-- START OF THE HEADER DIV  -->
+
+	        	<div align="center" class="col-4" style="width: 50%;">
+                  <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="min-height: 80px; max-height: 80px;" alt="Logo"/>
+                </div>
+
+                 <div t-if="company.id==2" class="col-4 mt-4" align="center"> 
+                      <p style="font-weight: small; line-height:0.1;"> كومبانياى نبوغ </p>
+                      <p style="font-weight: small; line-height:0.1;">  بوبازركانى كشتى سنوردار </p>
+                      <p style="font-weight: small; line-height:0.1;">  فرع اربيل\ اقليم كردستان العراق </p> 
+                 </div>
+
+              <div class="col-8 mb-4" style="width: 50%; margin-top: 10px;">
+               
+                <div align="right" style="padding-right:90px;" t-if="company.id==1" >
+                  <p style="font-weight: small; line-height:0.6;">تجارة الادوات الاحتياطية والمنزلية</p>
+                  <p style="font-size: small; line-height:0.1;">تدفئة وتبريد - جملة ومفرد - استيراد وتصدير</p>
+                  <p style="font-size: small; line-height:0.1;">HOME EQUIPMENTS &amp; SPARE PARTS TRADE</p>
+                  <p style="font-size: small; line-height:0.1;">Air Conditioning - Wholesale - Single - Import - Export</p>
+                  <p style="font-size: small; line-height:0.1;">8867516 - 8867517 : الهاتف</p>
+                </div>
+
+                <div align="right" style="padding-right: 100px;" t-if="company.id==3">
+                  <h5 style="font-weight: bold; line-height:0.2; margin-bottom:10px;">   شركة النبوغ فرع الكفاح  </h5>
+                </div>
+             
+                 <div align="right" t-if="company.id==2">
+                  <h5 style="line-height:normal;">   شركة النبوغ فرع اربيل   </h5>
+                  <p style="font-weight: small; line-height:0.6;"> للتجارة العامة المحدودة </p>
+                  <p style="font-size: small; line-height:0.1;">تدفئة وتبريد - جملة ومفرد - استيراد وتصدير</p>
+                  <p style="font-size: small; line-height:0.1;"> 07506687070 - 07702333108 - 07504698770  </p>
+                </div>
+             
+                <div align="right" style="padding-right: 100px;" t-if="company.id==5">
+                  <h5 style="line-height:normal;"> إيهاب المحبوب للتجارة العامة    </h5>
+                  <p style="font-weight: small; line-height:normal;">تجارة عامة - تدفئة تبريد - منظومات ماء و قطع  غيرها </p>
+                  <p style="font-size: small; line-height:0.1;">   بغداد - السنك - سوق التبريد جامع سلمان النقيب</p>
+                </div>
+                      
+                      
+                <div align="right" style="padding-right: 100px;" t-if="company.id==6">
+                  <h5 style="line-height:normal;">  النبوغ/ عكد النصارى   </h5>
+                  <p style="font-weight: small; line-height:0.6;">تجارة الادوات الاحتياطية والمنزلية</p>
+                  <p style="font-size: small; line-height:0.1;">تدفئة وتبريد - جملة ومفرد - استيراد وتصدير</p>
+                </div>
+             
+                <div align="right" style="padding-right: 100px;" t-if="company.id==9">
+                  <h5 style="line-height:normal;">  النبوغ/ شركة الكوثر   </h5>
+                  <p style="font-weight: small; line-height:normal;">     استيراد منظومات المياه و قطع الغيار التايونية الاصلية  </p>
+                  <p style="font-size: small; line-height:0.1;">   بغداد - السنك - سوق التبريد   </p>
+                </div>
+
+                <div align="right" style="padding-right: 100px;" t-if="company.id==4">
+                   <h5 style="line-height:normal;">  النبوغ /احمد المحبوب </h5>
+                    <p style="font-weight: small; line-height:0.6;"> تجارة عامة </p>
+                    <p style="font-weight: small; line-height:0.1;"> اجهزة منزلية - ادوات احتياطية  </p>
+                    <p style="font-size: small; line-height:0.1;">  بغداد - السنك - مجاور شركة سامسونج سابقا  </p>
+                    <p style="font-size: small; line-height:0.1;"> 07901592236 - 07724625643 </p>
+                </div>
+		      
+              </div>
+			<!-- END OF THE HEADER DIV  -->
+          </div>
+
+        </xpath> 
+
+        <xpath expr="//div[@name='company_address']//.." position="replace">
+
+          <div class="row" style="margin-top: 20px; padding-bottom: 40px;" t-if="company.id==1">
+            <div class="col-4 row">
+              <div class="col-5">
+                <p align="right" style="line-height: 0.07;">رقم الشركة</p>
+                <p align="right" style="line-height: 0.07;">رقم الإدارة</p>
+                <p align="right" style="line-height: 0.07;">محمد شنون</p>
+              </div>
+              <div class="col-6">
+                <p align="left" style="line-height: 0.07;">07736264163</p>
+                <p align="left" style="line-height: 0.07;">07901103487</p>
+                <p align="left" style="line-height: 0.07;">07712700870</p>
+              </div>
+            </div>
+
+            <div class="col-4" style="border-right: solid black 1px; border-left: solid black 1px;">
+              <p align="center" style="line-height: 0.07; font-weight: bold;">مبيعات</p>
+              <p align="center" style="line-height: 0.07;">07834036241</p>
+              <p align="center" style="line-height: 0.07;">07736737091</p>
+            </div>
+
+            <div class="col-4">
+              <p align="left" style="line-height: 0.07;">Email: nuboogh_2003@yahoo.com</p>
+              <p align="left" style="line-height: 0.07;">info@nuboogh.com</p>
+              <p align="left" style="line-height: 0.07;">www.nuboogh.com</p>
+            </div>
+         
+          </div>
+
+          <div class="row" style="margin-top: 20px; padding-bottom: 40px;" t-if="company.id==5">
+            <div class="col-4">
+              <div class="col-5">
+                <p align="right" style="line-height: 0.07;">فيصل محمد</p>
+                <p align="right" style="line-height: 0.07;">حسين المحبوب</p>
+              </div>
+              <div class="col-6">
+                <p align="left" style="line-height: 0.07;">07726754194</p>
+                <p align="left" style="line-height: 0.07;">07709085935</p>
+              </div>
+            </div>
+
+            <div class="col-4" style="border-right: solid black 1px; border-left: solid black 1px;"></div>
+
+            <div class="col-4">
+              <p align="left" style="line-height: 0.07;">hussein_almahbub@yahoo.com</p>
+              <p align="left" style="line-height: 0.07;">hussein.ahmed@nuboogh.com</p>
+            </div>
+          </div>
+
+          <div class="row" style="margin-top: 20px; padding-bottom: 40px;" t-if="company.id==9">
+            <div class="col-4">
+              <p align="right" style="line-height: 0.07;">رقم الشركة 07715179740 - 07803264313 </p>
+              <div class="row">
+                <div class="col-5">
+                  <p align="right" style="line-height: 0.07;">رقم المخزن</p>
+                  <p align="right" style="line-height: 0.07;">مبيعات الجملة</p>
+                </div>
+                <div class="col-6">
+                  <p align="left" style="line-height: 0.07;">07812223070</p>
+                  <p align="left" style="line-height: 0.07;">07713399665</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-4" style="border-right: solid black 1px; border-left: solid black 1px;">
+              <p align="center" style="line-height: 0.07; font-weight: bold;">مبيعات</p>
+              <p align="center" style="line-height: 0.07;">07733395399</p>
+            </div>
+
+            <div class="col-4">
+              <p align="left" style="line-height: 0.07;">nuboogh_2003@yahoo.com</p>
+            </div>
+          </div>
+        
+        </xpath>
+
+
+
+        <xpath expr="//t[@t-call='web.address_layout']//.." position="attributes">
+          <attribute name="style">margin-bottom: 10px; width: 100%;</attribute>
+          <attribute name="align">right</attribute>
+        </xpath>
+
+        <xpath expr="//div[@name='financial_infos']//..//.." position="replace"/>
+
+      </template>
+
+      <template id="nuboogh_address_layout" inherit_id="web.address_layout">
+        <xpath expr="//div[@name='address']" position="attributes">
+          <attribute name="style">float: right;</attribute>
+        </xpath>
+      </template>
+
+    
+  </data>
+</odoo>
