@@ -43,11 +43,20 @@
                      <p style="font-weight: small; line-height:0.3;">أوتوماتيك - عادي  &#8195; ||&#8195; جملة - مفرد</p> 
                      <p style="font-weight: small; line-height:0.3;">بغداد - الكفاح - فضوة عرب 07809299791</p> 
                 </div>
+
+                <div align="right" style="padding-right: 120px;" t-if="company.id==4">
+                    <p style="font-weight: bold; font-size: medium; line-height:0.6;">المحبوب</p>
+                    <p style="font-weight: small; line-height:0.1;"> تجارة عامة </p>
+                    <p style="font-weight: small; line-height:0.1;"> اجهزة منزلية - ادوات احتياطية  </p>
+                    <p style="font-size: small; line-height:0.1;">  بغداد - السنك - مجاور شركة سامسونج سابقا  </p>
+                    <p style="font-size: small; line-height:0.1;"> 07901592236 - 07724625643 </p>
+                </div>
                 
-                <div align="right" style="padding-right: 100px; padding-left: 100px;" t-if="company.id==5">
-                  <h5 style="line-height:normal;"> إيهاب المحبوب للتجارة العامة    </h5>
-                  <p style="font-weight: small; line-height:normal;">تجارة عامة - تدفئة تبريد - منظومات ماء و قطع غيرها </p>
-                  <p style="font-size: small; line-height:0.1;">   بغداد - السنك - سوق التبريد جامع سلمان النقيب</p>
+                <div align="right" style="padding-right: 100px;" t-if="company.id==5">
+                  <h5 style="line-height:normal;"> إيهاب المحبوب للتجارة العامة</h5>
+                  <p style="font-weight: small; line-height:0.1;">تجارة عامة - تدفئة تبريد - منظومات ماء و قطع</p>
+                  <p style="font-weight: small; line-height:0.1;">و غيرها</p>
+                  <p style="font-size: small; line-height:0.1;">بغداد - السنك - سوق التبريد جامع سلمان النقيب</p>
                 </div>
                       
                       
@@ -55,20 +64,13 @@
                   <h5 style="line-height:normal;">  النبوغ/ عكد النصارى   </h5>
                   <p style="font-weight: small; line-height:0.6;">تجارة الادوات الاحتياطية والمنزلية</p>
                   <p style="font-size: small; line-height:0.1;">تدفئة وتبريد - جملة ومفرد - استيراد وتصدير</p>
+                  <p style="font-size: small; line-height:0.1;">07710317605 - 07727617478</p>
                 </div>
              
                 <div align="right" style="padding-right: 100px;" t-if="company.id==9">
                   <h5 style="line-height:normal;"> النبوغ/ شركة الكوثر</h5>
                   <p style="font-weight: small; line-height:normal;">استيراد منظومات المياه و قطع الغيار التايونية الاصلية</p>
                   <p style="font-size: small; line-height:0.1;">بغداد - السنك - سوق التبريد</p>
-                </div>
-
-                <div align="right" style="padding-right: 100px;" t-if="company.id==4">
-                   <h5 style="line-height:normal;">  النبوغ /احمد المحبوب </h5>
-                    <p style="font-weight: small; line-height:0.6;"> تجارة عامة </p>
-                    <p style="font-weight: small; line-height:0.1;"> اجهزة منزلية - ادوات احتياطية  </p>
-                    <p style="font-size: small; line-height:0.1;">  بغداد - السنك - مجاور شركة سامسونج سابقا  </p>
-                    <p style="font-size: small; line-height:0.1;"> 07901592236 - 07724625643 </p>
                 </div>
 		      
               </div>
@@ -106,7 +108,7 @@
             </div>
           </div>
           
-          <div class="row" style="margin-top: 20px; padding-bottom: 40px;" t-if="company.id==5">
+          <div class="row" style="margin-top: 20px; padding-bottom: 30px;" t-if="company.id==5">
             <div class="col-4 row">
               <div class="col-6">
                 <p align="right" style="line-height: 0.07;">فيصل محمد</p>
@@ -126,7 +128,7 @@
             </div>
           </div>
 
-          <div class="row" style="margin-top: 20px; padding-bottom: 30px;" t-if="company.id==9">
+          <div class="row" style="margin-top: 20px; margin-bottom: 20px; padding-bottom: 30px;" t-if="company.id==9">
             <div class="col-4">
               <p align="right" style="line-height: 0.07;">رقم الشركة 07715179740 - 07803264313 </p>
               <div class="row">
