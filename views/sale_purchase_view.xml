@@ -1,0 +1,31 @@
+<odoo>
+  <data>
+
+    <record id="sale_order_form_view_nuboogh" model="ir.ui.view">
+      <field name="name">sale.order.form.nuboogh</field>
+      <field name="model">sale.order</field>
+      <field name="inherit_id" ref="sale.view_order_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='order_line']//tree//field[@name='product_id']" position="after">
+          <field name="product_name_2"/>
+          <field name="product_type"/>
+          <field name="product_country_of_origin"/>
+        </xpath>
+      </field>
+    </record>
+
+    <record id="purchase_order_form_view_nuboogh" model="ir.ui.view">
+      <field name="name">purchase.order.form.nuboogh</field>
+      <field name="model">purchase.order</field>
+      <field name="inherit_id" ref="purchase.purchase_order_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='order_line']//tree//field[@name='product_id']" position="after">
+          <field name="product_type_en"/>
+          <field name="product_country_of_origin_en"/>
+          <field name="product_name_en"/>
+        </xpath>
+      </field>
+    </record>
+
+  </data>
+</odoo>

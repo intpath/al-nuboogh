@@ -14,14 +14,11 @@
              			<!-- START OF THE HEADER DIV  -->
 
 	        	<div align="center" class="col-4" style="width: 50%;">
-                  <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="min-height: 80px; max-height: 80px;" alt="Logo"/>
+                  <img t-if="company.logo and company.id != 3" t-att-src="image_data_uri(company.logo)" style="min-height: 80px; max-height: 80px;" alt="Logo"/>
+                  <img t-if="company.logo and company.id == 3" t-att-src="image_data_uri(company.logo)" style="min-height: 100px; max-height: 100px;" alt="Logo"/>
                 </div>
 
-                 <div t-if="company.id==2" class="col-4 mt-4" align="center"> 
-                      <p style="font-weight: small; line-height:0.1;"> كومبانياى نبوغ </p>
-                      <p style="font-weight: small; line-height:0.1;">  بوبازركانى كشتى سنوردار </p>
-                      <p style="font-weight: small; line-height:0.1;">  فرع اربيل\ اقليم كردستان العراق </p> 
-                 </div>
+
 
               <div class="col-8 mb-4" style="width: 50%; margin-top: 10px;">
                
@@ -32,21 +29,24 @@
                   <p style="font-size: small; line-height:0.1;">Air Conditioning - Wholesale - Single - Import - Export</p>
                   <p style="font-size: small; line-height:0.1;">8867516 - 8867517 : الهاتف</p>
                 </div>
+                            
+                <div style="padding-right:100px;" align="right" t-if="company.id==2" > 
+                     <p style="font-weight: small; line-height:0.5;"> كومبانياى نبوغ </p>
+                     <p style="font-weight: small; line-height:0.2;">  بوبازركانى كشتى سنوردار </p>
+                     <p style="font-weight: small; line-height:0.2;">  فرع اربيل\ اقليم كردستان العراق </p> 
+                     <p style="font-weight: small; line-height:0.2;">07506687070 - 07702333108 - 07504698770</p> 
+                </div>
 
-                <div align="right" style="padding-right: 100px;" t-if="company.id==3">
-                  <h5 style="font-weight: bold; line-height:0.2; margin-bottom:10px;">   شركة النبوغ فرع الكفاح  </h5>
+                <div style="padding-right:100px;" align="right" t-if="company.id==3" > 
+                     <p style="font-weight: bold; line-height:0.6;">شركة المحبوب</p>
+                     <p style="font-weight: small; line-height:0.3;">لبيع الأدوات الإحتياطية للدراجات النارية</p>
+                     <p style="font-weight: small; line-height:0.3;">أوتوماتيك - عادي  &#8195; ||&#8195; جملة - مفرد</p> 
+                     <p style="font-weight: small; line-height:0.3;">بغداد - الكفاح - فضوة عرب 07809299791</p> 
                 </div>
-             
-                 <div align="right" t-if="company.id==2">
-                  <h5 style="line-height:normal;">   شركة النبوغ فرع اربيل   </h5>
-                  <p style="font-weight: small; line-height:0.6;"> للتجارة العامة المحدودة </p>
-                  <p style="font-size: small; line-height:0.1;">تدفئة وتبريد - جملة ومفرد - استيراد وتصدير</p>
-                  <p style="font-size: small; line-height:0.1;"> 07506687070 - 07702333108 - 07504698770  </p>
-                </div>
-             
-                <div align="right" style="padding-right: 100px;" t-if="company.id==5">
+                
+                <div align="right" style="padding-right: 100px; padding-left: 100px;" t-if="company.id==5">
                   <h5 style="line-height:normal;"> إيهاب المحبوب للتجارة العامة    </h5>
-                  <p style="font-weight: small; line-height:normal;">تجارة عامة - تدفئة تبريد - منظومات ماء و قطع  غيرها </p>
+                  <p style="font-weight: small; line-height:normal;">تجارة عامة - تدفئة تبريد - منظومات ماء و قطع غيرها </p>
                   <p style="font-size: small; line-height:0.1;">   بغداد - السنك - سوق التبريد جامع سلمان النقيب</p>
                 </div>
                       
@@ -58,9 +58,9 @@
                 </div>
              
                 <div align="right" style="padding-right: 100px;" t-if="company.id==9">
-                  <h5 style="line-height:normal;">  النبوغ/ شركة الكوثر   </h5>
-                  <p style="font-weight: small; line-height:normal;">     استيراد منظومات المياه و قطع الغيار التايونية الاصلية  </p>
-                  <p style="font-size: small; line-height:0.1;">   بغداد - السنك - سوق التبريد   </p>
+                  <h5 style="line-height:normal;"> النبوغ/ شركة الكوثر</h5>
+                  <p style="font-weight: small; line-height:normal;">استيراد منظومات المياه و قطع الغيار التايونية الاصلية</p>
+                  <p style="font-size: small; line-height:0.1;">بغداد - السنك - سوق التبريد</p>
                 </div>
 
                 <div align="right" style="padding-right: 100px;" t-if="company.id==4">
@@ -104,12 +104,11 @@
               <p align="left" style="line-height: 0.07;">info@nuboogh.com</p>
               <p align="left" style="line-height: 0.07;">www.nuboogh.com</p>
             </div>
-         
           </div>
-
+          
           <div class="row" style="margin-top: 20px; padding-bottom: 40px;" t-if="company.id==5">
-            <div class="col-4">
-              <div class="col-5">
+            <div class="col-4 row">
+              <div class="col-6">
                 <p align="right" style="line-height: 0.07;">فيصل محمد</p>
                 <p align="right" style="line-height: 0.07;">حسين المحبوب</p>
               </div>
@@ -119,7 +118,7 @@
               </div>
             </div>
 
-            <div class="col-4" style="border-right: solid black 1px; border-left: solid black 1px;"></div>
+            <div class="col-4" style=""></div>
 
             <div class="col-4">
               <p align="left" style="line-height: 0.07;">hussein_almahbub@yahoo.com</p>
@@ -127,7 +126,7 @@
             </div>
           </div>
 
-          <div class="row" style="margin-top: 20px; padding-bottom: 40px;" t-if="company.id==9">
+          <div class="row" style="margin-top: 20px; padding-bottom: 30px;" t-if="company.id==9">
             <div class="col-4">
               <p align="right" style="line-height: 0.07;">رقم الشركة 07715179740 - 07803264313 </p>
               <div class="row">
@@ -148,7 +147,7 @@
             </div>
 
             <div class="col-4">
-              <p align="left" style="line-height: 0.07;">nuboogh_2003@yahoo.com</p>
+              <p align="left" style="line-height: 0.07; padding-top: 8px;">nuboogh_2003@yahoo.com</p>
             </div>
           </div>
         

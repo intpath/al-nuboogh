@@ -27,6 +27,7 @@
         # 'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
+        'views/sale_purchase_view.xml',
         'reports/invoice_report.xml',
         'reports/custome_layout.xml',
         'reports/account_payment.xml',

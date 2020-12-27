@@ -47,6 +47,15 @@ class ProductTemplateExt(models.Model):
     product_name_2 = fields.Char(string="الاسم الثاني للمنتج")
     name_en = fields.Char(string=" اسم المادة بالانكليزي")
     
-# class UserExt(models.Model):
-#     _inherit = 'res.users'
-#     sales_person = fields.Many2one('res.partner')
+class SaleOrder(models.Model):
+    _inherit = 'sale.order.line'
+    product_type = fields.Char(string="الموديل", related="product_id.product_type")
+    product_country_of_origin = fields.Char(string="بلد المنشأ", related="product_id.country_of_origin")        
+    product_name_2 = fields.Char(string="الاسم الثاني للمنتج", related="product_id.product_name_2")
+
+    
+class PurchaseOrder(models.Model):
+    _inherit="purchase.order.line"
+    product_type_en = fields.Char(string="الموديل بالإنكليزي", related="product_id.product_type_en")
+    product_country_of_origin_en = fields.Char(string="بلد المنشأ بالإنكليزي", related="product_id.country_of_origin_en") 
+    product_name_en = fields.Char(string=" اسم المادة بالانكليزي", related="product_id.name_en")
