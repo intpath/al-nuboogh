@@ -32,7 +32,7 @@
         </xpath>
 
         <xpath expr="//address" position="attributes">
-          <attribute name="style">margin-bottom: -500px;</attribute>
+          <attribute name="style">margin-bottom: 0px;</attribute>
           <attribute name="align">right</attribute>
         </xpath>
 
