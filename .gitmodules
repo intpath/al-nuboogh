@@ -31,3 +31,8 @@
 	path = intpath/report_stock_inventory
 	url = git@github.com:intpath/report_stock_inventory.git
 	branch = nuboogh
+
+[submodule "intpath/deltatech_stock_negative"]
+	path = intpath/deltatech_stock_negative
+	url = git@github.com:intpath/deltatech_stock_negative.git
+	branch = master
