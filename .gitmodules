@@ -41,3 +41,8 @@
 	path = intpath/warehouse-restriction
 	url = git@github.com:intpath/warehouse-restriction.git
 	branch = master
+
+[submodule "intpath/stock_limitation"]
+	path = intpath/stock_limitation
+	url = git@github.com:intpath/stock_limitation.git
+	branch = master
