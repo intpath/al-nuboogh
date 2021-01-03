@@ -36,3 +36,8 @@
 	path = intpath/deltatech_stock_negative
 	url = git@github.com:intpath/deltatech_stock_negative.git
 	branch = master
+
+[submodule "intpath/warehouse-restriction"]
+	path = intpath/warehouse-restriction
+	url = git@github.com:intpath/warehouse-restriction.git
+	branch = master
