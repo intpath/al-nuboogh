@@ -46,3 +46,8 @@
 	path = intpath/stock_limitation
 	url = git@github.com:intpath/stock_limitation.git
 	branch = master
+
+[submodule "intpath/om_mass_confirm_cancel"]
+	path = intpath/om_mass_confirm_cancel
+	url = git@github.com:intpath/om_mass_confirm_cancel.git
+	branch = master
