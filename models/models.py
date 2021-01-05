@@ -69,22 +69,22 @@ class PurchaseOrder(models.Model):
 class  ProductProductext(models.Model):
     _inherit="product.product"
 
-    display_name = fields.Char(compute="_compute_display_name")
+    full_name = fields.Char(compute="_compute_display_name")
 
     def _compute_display_name(self):
         for item in self:
             # raise UserError( str(item.product_name_2) ) 
             if item.product_name_2:
-                item.display_name = item.name + " - " + item.product_name_2
+                item.full_name = item.name + " - " + item.product_name_2
             else:
-                item.display_name = item.name
+                item.full_name = item.name
 
     @api.model
     def name_get(self):
         result = []
         for record in self:
-                if record.display_name:
-                    record_name = record.display_name
+                if record.full_name:
+                    record_name = record.full_name
                     result.append((record.id, record_name))
                 else:
                     record_name = record.name
