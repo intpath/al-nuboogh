@@ -46,9 +46,6 @@ class ProductTemplateExt(models.Model):
     country_of_origin_en = fields.Char(string="بلد المنشأ بالإنكليزي")        
     product_name_2 = fields.Char(string="الاسم الثاني للمنتج")
     name_en = fields.Char(string=" اسم المادة بالانكليزي")
-    display_name = fields.Char(compute="_compute_display_name")
-
-    
 
     
 class SaleOrder(models.Model):
@@ -69,22 +66,22 @@ class PurchaseOrder(models.Model):
 class  ProductProductext(models.Model):
     _inherit="product.product"
 
-    full_name = fields.Char(compute="_compute_display_name")
+    full_names = fields.Char(compute="_compute_full_names")
 
-    def _compute_display_name(self):
+    def _compute_full_names(self):
         for item in self:
             # raise UserError( str(item.product_name_2) ) 
             if item.product_name_2:
-                item.full_name = item.name + " - " + item.product_name_2
+                item.full_names = item.name + " - " + item.product_name_2
             else:
-                item.full_name = item.name
+                item.full_names = item.name
 
     @api.model
     def name_get(self):
         result = []
         for record in self:
-                if record.full_name:
-                    record_name = record.full_name
+                if record.full_names:
+                    record_name = record.full_names
                     result.append((record.id, record_name))
                 else:
                     record_name = record.name
