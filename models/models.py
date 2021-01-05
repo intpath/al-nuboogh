@@ -48,24 +48,8 @@ class ProductTemplateExt(models.Model):
     name_en = fields.Char(string=" اسم المادة بالانكليزي")
     display_name = fields.Char(compute="_compute_display_name")
 
-    def compute_display_name(self):
-        for item in self:
-            if item.product_name_2:
-                item.display_name = item.name + "-" + item.product_name_2
-            else:
-                item.display_name = item.name
+    
 
-    @api.model
-    def name_get(self):
-        result = []
-        for record in self:
-                if record.display_name:
-                    record_name = record.display_name
-                    result.append((record.id, record_name))
-                else:
-                    record_name = record.name
-                    result.append((record.id, record_name))
-                    
     
 class SaleOrder(models.Model):
     _inherit = 'sale.order.line'
@@ -79,3 +63,28 @@ class PurchaseOrder(models.Model):
     product_type_en = fields.Char(string="الموديل بالإنكليزي", related="product_id.product_type_en")
     product_country_of_origin_en = fields.Char(string="بلد المنشأ بالإنكليزي", related="product_id.country_of_origin_en") 
     product_name_en = fields.Char(string=" اسم المادة بالانكليزي", related="product_id.name_en")
+
+
+
+class  ProductProductext(models.Model):
+    _inherit="product.product"
+
+    display_name = fields.Char(compute="_compute_display_name")
+
+    def compute_display_name(self):
+        for item in self:
+            if item.product_tmpl_id.product_name_2:
+                item.display_name = item.name + "-" + item.product_tmpl_id.product_name_2
+            else:
+                item.display_name = item.name
+
+    @api.model
+    def name_get(self):
+        result = []
+        for record in self:
+                if record.display_name:
+                    record_name = record.display_name
+                    result.append((record.id, record_name))
+                else:
+                    record_name = record.name
+                    result.append((record.id, record_name))
