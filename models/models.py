@@ -22,7 +22,7 @@ class Cus_nuboogh(models.Model):
     @api.depends("partner_id")
     def calc_warehouse_location_id(self):
         if self.invoice_origin:
-            transfers=self.env["stock.picking"].search([("origin","=",self.invoice_origin)], limit=1)
+            transfers=self.env["stock.picking"].search([("origin","=",self.invoice_origin)], order="id desc", limit=1)
             if transfers:
                 self.warehouse_location_id = transfers.id
             else:
