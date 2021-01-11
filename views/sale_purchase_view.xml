@@ -14,17 +14,6 @@
       </field>
     </record>
 
-    <record id="product_template_tree_view_nubbogh" model="ir.ui.view">
-      <field name="name">product.template.tree.nuboogh</field>
-      <field name="model">product.template</field>
-      <field name="inherit_id" ref="product.product_template_tree_view"/>
-      <field name="arch" type="xml">
-        <field name="name" position="after">
-          <field name="product_name_2" />
-        </field>
-      </field>
-    </record>
-
     <record id="purchase_order_form_view_nuboogh" model="ir.ui.view">
       <field name="name">purchase.order.form.nuboogh</field>
       <field name="model">purchase.order</field>

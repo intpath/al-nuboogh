@@ -13,8 +13,7 @@ class Cus_nuboogh(models.Model):
     @api.onchange("partner_id")
     def _get_prev_debit(self):
         if self.partner_id:
-            invoice_payed_amount = self.amount_total - self.amount_residual
-            self.previous_customer_debit = self.partner_id.total_due + invoice_payed_amount
+            self.previous_customer_debit = self.partner_id.total_due - self.amount_total
         else:
             self.previous_customer_debit = False
 

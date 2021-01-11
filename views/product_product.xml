@@ -1,0 +1,61 @@
+<odoo>
+    <data>
+
+        <record id="product_template_control_nuboogh" model="ir.ui.view">
+          <field name="name">product.template.control.nuboogh</field>
+          <field name="model">product.template</field>
+          <field name="inherit_id" ref="product.product_template_search_view"/>
+          <field name="arch" type="xml">
+            <xpath expr="//field[@name='categ_id']" position="before">
+                <field name="product_name_2"/>
+                <field name="product_type"/>
+            </xpath>
+          </field>
+        </record>
+
+        <record id="sale_order_inherit" model="ir.ui.view">
+            <field name="name">product_templ_inh</field>
+            <field name="model">product.template</field>
+             <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook//page[@name='general_information']//group//group[@name='group_general']" position="inside">
+                  <field name="product_type" />
+                  <field name="product_type_en" />
+                  <field name="product_name_2" />
+                  <field name="name_en" />
+                  <field name="country_of_origin"/>
+                  <field name="country_of_origin_en"/>
+                </xpath>
+            </field>
+        </record>  
+
+
+        <record id="product_template_tree_view_nubbogh" model="ir.ui.view">
+          <field name="name">product.template.tree.nuboogh</field>
+          <field name="model">product.template</field>
+          <field name="inherit_id" ref="product.product_template_tree_view"/>
+          <field name="arch" type="xml">
+            <field name="name" position="after">
+              <field name="product_name_2" />
+              <field name="product_type" />
+            </field>
+          </field>
+        </record>
+
+
+
+        <record id="product_product_tree_view_nubbogh" model="ir.ui.view">
+          <field name="name">product.product.tree.nuboogh</field>
+          <field name="model">product.product</field>
+          <field name="inherit_id" ref="product.product_product_tree_view"/>
+          <field name="arch" type="xml">
+            <field name="name" position="after">
+              <field name="product_name_2" />
+              <field name="product_type" />
+            </field>
+          </field>
+        </record>
+
+        
+    </data>
+</odoo>
