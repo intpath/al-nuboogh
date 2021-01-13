@@ -1,0 +1,34 @@
+<odoo>
+    <data>
+
+        <template id="stock_picking_report_nuboogh" inherit_id="stock.report_picking">
+            <xpath expr="//table[1]//th[@name='th_product']" position="after">
+                <th name="th_product_name_2">
+                    <strong>الإسم الثاني</strong>
+                </th>
+                <th name="th_product_model_type">
+                    <strong>المودل</strong>
+                </th>
+                <th name="th_product_country_of_origin">
+                    <strong>بلد المنشأ</strong>
+                </th>
+            </xpath>
+            <xpath expr="//table[1]//td[1]" position="replace">
+                <td>
+                    <span t-field="ml.product_id.name"/><br/>
+                    <span t-field="ml.product_id.description_picking"/>
+                </td>
+                <td>
+                    <span t-field="ml.product_id.product_name_2"/>
+                </td>
+                <td>
+                    <span t-field="ml.product_id.product_type"/>
+                </td>
+                <td>
+                    <span t-field="ml.product_id.country_of_origin"/>
+                </td>
+            </xpath>
+        </template>
+
+  </data>
+</odoo>
