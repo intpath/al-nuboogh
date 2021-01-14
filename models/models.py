@@ -76,13 +76,8 @@ class  ProductProductext(models.Model):
                 item.display_name = item.name
 
 #    @api.model
-#    def name_get(self):
-#        result = []
-#        for record in self:
-#                if record.full_names:
-#                    record_name = record.full_names
-#                    result.append((record.id, record_name))
-#                else:
-#                    record_name = record.name
-#                    result.append((record.id, record_name))
-#        return result
+    def name_get(self):
+        result = []
+        for record in self:
+                    result.append((record.id, record.display_name))
+        return result
