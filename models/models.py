@@ -36,6 +36,9 @@ class Cus_nuboogh(models.Model):
             total_qty += line.quantity
         self.total_qty = total_qty
 
+class AccountPyament(models.Model):
+    _inherit = "account.payment"
+    partner_due = fields.Monetary(string="مستحق الزبون/المجهز" ,related="partner_id.total_due")
 
 class ProductTemplateExt(models.Model):
     _inherit = 'product.template'

@@ -1,0 +1,16 @@
+<odoo>
+    <data>
+
+        <record id="account_payment_form_nuboogh" model="ir.ui.view">
+          <field name="name">account.payment.form.nuboogh</field>
+          <field name="model">account.payment</field>
+          <field name="inherit_id" ref="account.view_account_payment_form"/>
+          <field name="arch" type="xml">
+              <field name="partner_id" position="after">
+                  <field name="partner_due"/>
+              </field>            
+            </field>
+        </record>
+    
+    </data>
+</odoo>
