@@ -35,5 +35,6 @@
         'reports/sale_order_report.xml',
         'reports/purchase_order_report.xml',
         'reports/stock_picking_report.xml',
+        'reports/delivery_slip_report.xml',
     ],
 }
