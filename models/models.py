@@ -39,7 +39,8 @@ class Cus_nuboogh(models.Model):
 class AccountPyament(models.Model):
     _inherit = "account.payment"
     partner_due = fields.Monetary(string="مستحق الزبون/المجهز" ,related="partner_id.total_due")
-
+    partner_id = fields.Many2one("res.partner", domain="[('company_id', '=', company_id)]")
+    
 class ProductTemplateExt(models.Model):
     _inherit = 'product.template'
     product_type = fields.Char(string="الموديل")
