@@ -51,3 +51,8 @@
 	path = intpath/stock_limitation
 	url = git@github.com:intpath/stock_limitation.git
 	branch = 14
+
+[submodule "intpath/mak_partner_ledger_report"]
+	path = intpath/mak_partner_ledger_report
+	url = git@github.com:intpath/mak_partner_ledger_report.git
+	branch = master
