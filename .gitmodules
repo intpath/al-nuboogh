@@ -56,3 +56,8 @@
 	path = intpath/mak_partner_ledger_report
 	url = git@github.com:intpath/mak_partner_ledger_report.git
 	branch = master
+
+[submodule "intpath/accounting_pdf_reports"]
+	path = intpath/accounting_pdf_reports
+	url = git@github.com:intpath/accounting_pdf_reports.git
+	branch = master
