@@ -81,7 +81,7 @@
 
         <xpath expr="//div[@name='company_address']//.." position="replace">
 
-          <div class="row" style="margin-top: 20px; padding-bottom: 40px;" t-if="company.id==1">
+          <div class="row" style="margin-top: 20px; padding-bottom: 20px;" t-if="company.id==1">
             <div class="col-4 row">
               <div class="col-5">
                 <p align="right" style="line-height: 0.07;">رقم الشركة</p>
