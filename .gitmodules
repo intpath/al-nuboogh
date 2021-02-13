@@ -61,3 +61,8 @@
 	path = intpath/accounting_pdf_reports
 	url = git@github.com:intpath/accounting_pdf_reports.git
 	branch = master
+
+[submodule "intpath/nuboogh_picking_operations_mod"]
+	path = intpath/nuboogh_picking_operations_mod
+	url = git@github.com:intpath/nuboogh_picking_operations_mod.git
+	branch = HEAD
