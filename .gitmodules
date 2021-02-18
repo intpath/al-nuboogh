@@ -66,3 +66,6 @@
 	path = intpath/nuboogh_picking_operations_mod
 	url = git@github.com:intpath/nuboogh_picking_operations_mod.git
 	branch = HEAD
+[submodule "intpath/nuboogh_landed_cost_mod"]
+	path = intpath/nuboogh_landed_cost_mod
+	url = git@github.com:intpath/nuboogh_landed_cost_mod.git
