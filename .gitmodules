@@ -69,3 +69,8 @@
 [submodule "intpath/nuboogh_landed_cost_mod"]
 	path = intpath/nuboogh_landed_cost_mod
 	url = git@github.com:intpath/nuboogh_landed_cost_mod.git
+
+[submodule "intpath/nuboogh_pdf_sales_report"]
+	path = intpath/nuboogh_pdf_sales_report
+	url = git@github.com:intpath/nuboogh_pdf_sales_report.git
+	branch = master
