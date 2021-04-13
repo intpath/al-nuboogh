@@ -74,3 +74,8 @@
 	path = intpath/nuboogh_pdf_sales_report
 	url = git@github.com:intpath/nuboogh_pdf_sales_report.git
 	branch = master
+
+[submodule "intpath/general_ledger_report_nub"]
+	path = intpath/general_ledger_report_nub
+	url = git@github.com:intpath/general_ledger_report_nub.git
+	branch = master
