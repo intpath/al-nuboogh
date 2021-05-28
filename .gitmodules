@@ -94,3 +94,8 @@
 	path = intpath/stock_int_customisations
 	url = git@github.com:intpath/stock_int_customisations.git
 	branch = master
+
+[submodule "intpath/machine_repair_equipment_integration"]
+	path = intpath/machine_repair_equipment_integration
+	url = git@github.com:intpath/machine_repair_equipment_integration.git
+	branch = master
