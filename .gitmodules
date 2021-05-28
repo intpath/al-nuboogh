@@ -99,3 +99,8 @@
 	path = intpath/machine_repair_equipment_integration
 	url = git@github.com:intpath/machine_repair_equipment_integration.git
 	branch = master
+
+[submodule "intpath/bi_customer_limit"]
+	path = intpath/bi_customer_limit
+	url = git@github.com:intpath/bi_customer_limit.git
+	branch = master
