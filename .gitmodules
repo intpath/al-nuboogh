@@ -99,3 +99,8 @@
 	path = intpath/bi_customer_limit
 	url = git@github.com:intpath/bi_customer_limit.git
 	branch = master
+
+[submodule "intpath/sale_order_price_warning"]
+	path = intpath/sale_order_price_warning
+	url = git@github.com:intpath/sale_order_price_warning.git
+	branch = master
