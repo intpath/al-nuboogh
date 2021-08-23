@@ -104,3 +104,8 @@
 	path = intpath/sale_order_price_warning
 	url = git@github.com:intpath/sale_order_price_warning.git
 	branch = master
+
+[submodule "intpath/pos_sale_item_info"]
+	path = intpath/pos_sale_item_info
+	url = git@github.com:intpath/pos_sale_item_info.git
+	branch = master
