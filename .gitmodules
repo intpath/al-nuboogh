@@ -109,3 +109,8 @@
 	path = intpath/pos_sale_item_info
 	url = git@github.com:intpath/pos_sale_item_info.git
 	branch = master
+
+[submodule "intpath/pos_invoice_description"]
+	path = intpath/pos_invoice_description
+	url = git@github.com:intpath/pos_invoice_description.git
+	branch = master
