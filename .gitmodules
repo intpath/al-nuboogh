@@ -114,3 +114,8 @@
 	path = intpath/pos_invoice_description
 	url = git@github.com:intpath/pos_invoice_description.git
 	branch = master
+
+[submodule "intpath/stock_landed_cost_cancel"]
+	path = intpath/stock_landed_cost_cancel
+	url = git@github.com:intpath/stock_landed_cost_cancel.git
+	branch = master
