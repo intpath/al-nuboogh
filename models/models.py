@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 from odoo import models, fields, api
 from odoo.exceptions import UserError
 
@@ -36,12 +35,23 @@ class Cus_nuboogh(models.Model):
             total_qty += line.quantity
         self.total_qty = total_qty
 
+
 class AccountPyament(models.Model):
     _inherit = "account.payment"
-    partner_due = fields.Monetary(string="مستحق الزبون/المجهز", related="partner_id.total_due")
+    partner_due = fields.Monetary(string="مستحق الزبون/المجهز", compute="_compute_partner_due")
     partner_id = fields.Many2one(domain="[('company_id', 'in', [main_company_id, False])]")
     main_company_id = fields.Many2one("res.company", default=lambda self: self.env.company, readonly=True)
-    
+
+    @api.onchange('partner_id')
+    def _compute_partner_due(self):
+        account_partner_ledger = self.env['account.partner.ledger'].with_context({'default_partner_id': self.partner_id.id})
+        options = account_partner_ledger._get_options()
+        options['partner_ids'] = [self.partner_id.id]
+        lines = account_partner_ledger._get_partner_ledger_lines(options)
+        total_balance = float(lines[-1]['columns'][-1]['name'].split()[-1].replace(',', ''))
+        self.partner_due = total_balance
+
+
 class ProductTemplateExt(models.Model):
     _inherit = 'product.template'
     product_type = fields.Char(string="الموديل")
