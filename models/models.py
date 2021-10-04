@@ -38,8 +38,9 @@ class Cus_nuboogh(models.Model):
 
 class AccountPyament(models.Model):
     _inherit = "account.payment"
-    partner_due = fields.Monetary(string="مستحق الزبون/المجهز", compute="_compute_partner_due")
+    partner_due = fields.Monetary(string="مستحق الزبون/المجهز", compute="_compute_partner_due", currency_field="partner_currency_id")
     partner_id = fields.Many2one(domain="[('company_id', 'in', [main_company_id, False])]")
+    partner_currency_id = fields.Many2one(related="partner_id.currency_id")
     main_company_id = fields.Many2one("res.company", default=lambda self: self.env.company, readonly=True)
 
     @api.onchange('partner_id')
