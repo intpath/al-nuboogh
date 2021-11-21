@@ -119,3 +119,8 @@
 	path = intpath/stock_landed_cost_cancel
 	url = git@github.com:intpath/stock_landed_cost_cancel.git
 	branch = master
+
+[submodule "Integrated-Path/product-al-nuboogh"]
+	path = Integrated-Path/product-al-nuboogh
+	url = git@github.com:Integrated-Path/product-al-nuboogh.git
+	branch = master
