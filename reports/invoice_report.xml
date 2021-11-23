@@ -69,6 +69,10 @@
             <span t-field='line.product_id.country_of_origin'/>
           </td>
         </xpath>
+        <xpath expr="//tbody[@class='invoice_tbody']//tr" position="attributes">
+           <attribute name="style">font-weight: bold;</attribute>
+          
+        </xpath>
 
         <xpath expr="//div[@id='total']//table//tr[1]" position="before">
           <tr>
