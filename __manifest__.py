@@ -3,7 +3,7 @@
     'name': "Al-Nuboogh",
 
     'summary': """
-        Customizations for Al-Shifaa""",
+        Customizations for Al-Nuboogh""",
 
     'author': "INTEGRATED PATH",
     'website': "https://www.int-path.com",
@@ -15,7 +15,7 @@
     'version': '1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'sale', 'stock', 'account', 'product', 'purchase'],
+    'depends': ['base', 'sale', 'stock', 'account', 'product', 'purchase', 'account_reports'],
 
     # always loaded
     'data': [
