@@ -103,7 +103,7 @@
                   <strong>الديون الحالية</strong>
                 </td>
                 <td class="text-right">
-                  <span t-field="o.partner_id.total_due"/>
+                  <span t-field="o.current_customer_debit"/>
                 </td>
               </tr>
             </table>

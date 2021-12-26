@@ -12,6 +12,7 @@ class AccountMove(models.Model):
     invoice_type = fields.Selection(
         [('monetory', 'نقدي'), ('temem', 'ذمم')], string="نوع الفاتورة", default="temem")
     previous_customer_debit = fields.Monetary(compute="_get_prev_debit")
+    current_customer_debit = fields.Monetary(compute="_get_curr_debit")
 
     partner_due = fields.Monetary(
         string="مستحق الزبون/المجهز", compute="_compute_partner_due", currency_field="company_currency_id")
@@ -22,6 +23,13 @@ class AccountMove(models.Model):
             self.previous_customer_debit = self.partner_due - self.amount_total
         else:
             self.previous_customer_debit = False
+
+    @api.onchange("partner_id")
+    def _get_curr_debit(self):
+        if self.partner_id:
+            self.current_customer_debit = self.previous_customer_debit + self.amount_total
+        else:
+            self.current_customer_debit = False
 
     @api.onchange('partner_id')
     def _compute_partner_due(self):
