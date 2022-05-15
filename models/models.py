@@ -12,7 +12,7 @@ class AccountMove(models.Model):
     invoice_type = fields.Selection(
         [('monetory', 'نقدي'), ('temem', 'ذمم')], string="نوع الفاتورة", default="temem")
     previous_customer_debit = fields.Monetary(compute="_get_prev_debit")
-    current_customer_debit = fields.Monetary(compute="_get_curr_debit")
+    current_customer_debit = fields.Monetary(compute="_get_curr_debit", currency_field="company_currency_id")
 
     partner_due = fields.Monetary(
         string="مستحق الزبون/المجهز", compute="_compute_partner_due", currency_field="company_currency_id")
