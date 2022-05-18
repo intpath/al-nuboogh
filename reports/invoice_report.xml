@@ -100,10 +100,18 @@
               </tr>
               <tr class="border-black o_total">
                 <td>
-                  <strong>الديون الحالية</strong>
+                  <strong>الديون الحالية بالدولار</strong>
                 </td>
                 <td class="text-right">
                   <span t-field="o.current_customer_debit"/>
+                </td>
+              </tr>
+              <tr class="border-black o_total">
+                <td>
+                  <strong>الديون الحالية بالدينار</strong>
+                </td>
+                <td class="text-right">
+                  <span t-field="o.iqd_current_customer_debit"/>
                 </td>
               </tr>
             </table>

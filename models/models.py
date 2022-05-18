@@ -13,6 +13,8 @@ class AccountMove(models.Model):
         [('monetory', 'نقدي'), ('temem', 'ذمم')], string="نوع الفاتورة", default="temem")
     previous_customer_debit = fields.Monetary(compute="_get_prev_debit")
     current_customer_debit = fields.Monetary(compute="_get_curr_debit", currency_field="company_currency_id")
+    iqd_currency_id = fields.Many2one("res.currency", "IQD Currency", compute="get_iqd_currency")
+    iqd_current_customer_debit = fields.Monetary(compute="_get_curr_debit", currency_field="iqd_currency_id")
 
     partner_due = fields.Monetary(
         string="مستحق الزبون/المجهز", compute="_compute_partner_due", currency_field="company_currency_id")
@@ -24,12 +26,24 @@ class AccountMove(models.Model):
         else:
             self.previous_customer_debit = False
 
+    def get_iqd_currency(self):
+        for move_id in self:
+            move_id.iqd_currency_id = self.env.ref("base.IQD").id
+
     @api.onchange("partner_id")
     def _get_curr_debit(self):
-        if self.partner_id:
-            self.current_customer_debit = self.previous_customer_debit + self.amount_total
-        else:
-            self.current_customer_debit = False
+        for account_move in self:
+            if account_move.partner_id:
+                current_customer_debit = account_move.previous_customer_debit + account_move.amount_total
+                account_move.current_customer_debit = current_customer_debit
+                account_move.iqd_current_customer_debit =  account_move.company_currency_id._convert(
+                    current_customer_debit,
+                    account_move.iqd_currency_id,
+                    account_move.company_id,
+                    account_move.date)
+            else:
+                account_move.current_customer_debit = False
+                account_move.iqd_current_customer_debit = False
 
     @api.onchange('partner_id')
     def _compute_partner_due(self):
