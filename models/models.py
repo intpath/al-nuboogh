@@ -81,12 +81,19 @@ class AccountPyament(models.Model):
 
     partner_due = fields.Monetary(
         string="مستحق الزبون/المجهز", compute="_compute_partner_due", currency_field="company_currency_id")
+    iqd_currency_id = fields.Many2one("res.currency", "IQD Currency", compute="get_iqd_currency")
+    iqd_currency_partner_due = fields.Monetary(
+        string="Partner due in IQD currency", compute="_compute_partner_due", currency_field="iqd_currency_id")
     partner_id = fields.Many2one(
         domain="[('company_id', 'in', [main_company_id, False])]")
     company_currency_id = fields.Many2one(
         related="main_company_id.currency_id")
     main_company_id = fields.Many2one(
         "res.company", default=lambda self: self.env.company, readonly=True)
+
+    def get_iqd_currency(self):
+        for move_id in self:
+            move_id.iqd_currency_id = self.env.ref("base.IQD").id
 
     @api.onchange('partner_id')
     def _compute_partner_due(self):
@@ -96,7 +103,13 @@ class AccountPyament(models.Model):
         options['partner_ids'] = [self.partner_id.id]
         lines = account_partner_ledger._get_partner_ledger_lines(options)
         total_balance = float(lines[-1]['columns'][-1]['name'].split()[-1].replace(',', ''))
+        iqd_total_balance = self.company_currency_id._convert(
+            self.partner_id.total_due,
+            self.iqd_currency_id,
+            self.company_id,
+            self.date)
         self.partner_due = total_balance
+        self.iqd_currency_partner_due = iqd_total_balance
 
 
 class ProductTemplate(models.Model):
@@ -148,3 +161,8 @@ class ProductProduct(models.Model):
         for record in self:
             result.append((record.id, record.display_name))
         return result
+
+class ResCompany(models.Model):
+    _inherit = "res.company"
+
+    include_iqd_pricing_in_accounting = fields.Boolean("Include IQD Pricing in Account Moves", copy=False)

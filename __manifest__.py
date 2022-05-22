@@ -24,6 +24,7 @@
         'views/product_product.xml',
         'views/account_payment_view.xml',
         'views/sale_purchase_view.xml',
+        'views/res_company_views.xml',
         'reports/invoice_report.xml',
         'reports/custome_layout.xml',
         'reports/account_payment.xml',

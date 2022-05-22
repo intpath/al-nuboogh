@@ -106,7 +106,7 @@
                   <span t-field="o.current_customer_debit"/>
                 </td>
               </tr>
-              <tr class="border-black o_total">
+              <tr class="border-black o_total" t-if="o.company_id.include_iqd_pricing_in_accounting">
                 <td>
                   <strong>الديون الحالية بالدينار</strong>
                 </td>

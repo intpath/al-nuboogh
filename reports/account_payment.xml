@@ -1,105 +1,109 @@
 <odoo>
-  <data>
-
-    <template id="noboogh_payment_layout">
-
-        <div t-attf-class="header" t-att-style="report_header_style">
-            <div class="row">
-                <div align="center" class="col-12 mb4">
-                    <img t-if="o.company_id.logo" t-att-src="image_data_uri(o.company_id.logo)" style="width: 200px;" alt="Logo"/>
-                </div>
-            </div>
-            <div class="row zero_min_height">
-                <div class="col-12">
-                    <div style="border-bottom: 1px solid black;"/>
-                </div>
-            </div>
-        </div>
-
-        <div style="padding-top: 40px;" t-attf-class="article o_report_layout_standard" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
-            <t t-raw="0"/>
-        </div>
-
-    </template>
-
-    <template id="nuboogh_payment" inherit_id="account.report_payment_receipt_document">
-        <xpath expr="//t[@t-call='web.external_layout']" position="attributes">
-            <attribute name="t-call">al-nuboogh.noboogh_payment_layout</attribute>
-        </xpath>
-
-        <xpath expr="//div[hasclass('page')]//div[1]" position="inside">
-            <div class="col-6" t-if="o.partner_id">
-                <strong>الرصيد بعد التسديد: </strong> <span t-field="o.partner_id.total_due"/>
-            </div>
-        </xpath>
-
-        <xpath expr="//div[@t-if='o.payment_method_id']" position="replace">
-            <div class="col-6" t-if="o.payment_type">
-                <strong>نوع السداد: </strong><span t-field="o.payment_type"/>
-            </div>
-        </xpath>
-
-        <xpath expr="//div[@t-if='o.amount']" position="attributes">
-            <attribute name="style">font-size: x-large; text-shadow: 2px 2px 4px gray;</attribute>
-        </xpath>
-    </template>
-
-    <template id="report_payment_without_table">
-        <t t-call="web.html_container">
-            <t t-foreach="docs" t-as="o">
-                <t t-set="lang" t-value="o.partner_id.lang or o.company_id.partner_id.lang"/>
-                <t t-call="al-nuboogh.report_payment_receipt_without_table_document" t-lang="lang"/>
-            </t>
-        </t>
-    </template>
-
-    <template id="report_payment_receipt_without_table_document">
-        <t t-call="al-nuboogh.noboogh_payment_layout">
-            <t t-set="o" t-value="o.with_context(lang=lang)"/>
-            <div class="page">
-                <h3><strong>إيصال السداد: <span t-field="o.name"/></strong></h3>
-                <div class="row mt64">
-                    <div class="col-6" t-if="o.date">
-                        <strong>تاريخ السداد: </strong> <span t-field="o.date"/>
-                    </div>
-                    <div class="col-6" t-if="o.partner_id">
-                        <strong>الرصيد بعد التسديد: </strong> <span t-field="o.partner_id.total_due"/>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-6" t-if="o.partner_type">
-                        <t t-if="o.partner_type == 'customer'">
-                            <strong>العميل: </strong>
-                        </t>
-                        <t t-if="o.partner_type == 'supplier'">
-                            <strong>بائع: </strong>
-                        </t><span t-field="o.partner_id"/>
-                    </div>
-                    <div class="col-6" t-if="o.payment_type">
-                        <strong>نوع السداد: </strong><span t-field="o.payment_type"/>
-                    </div>
-                </div>
-                <div class="row mb64">
-                    <div class="col-6" style="font-size: x-large; text-shadow: 2px 2px 4px gray;" t-if="o.amount">
-                        <strong>مبلغ السداد: </strong><span t-field="o.amount" t-options="{'widget': 'monetary', 'display_currency': o.currency_id}"/>
-                    </div>
-                    <div class="col-6" t-if="o.ref">
-                        <strong>الملاحظة: </strong><span t-field="o.ref"/>
-                    </div>
-                </div>
-            </div>
-        </t>
-    </template>
-
-    <report
-        id="account_payment_without_table_report"
-        model="account.payment"
-        string="إيصال السداد بدون جدول"
-        name="al-nuboogh.report_payment_without_table"
-        report_type="qweb-pdf"
-        print_report_name="object.name"
-    />
-
-
-  </data>
-</odoo>
+    <data>
+  
+      <template id="noboogh_payment_layout">
+  
+          <div t-attf-class="header" t-att-style="report_header_style">
+              <div class="row">
+                  <div align="center" class="col-12 mb4">
+                      <img t-if="o.company_id.logo" t-att-src="image_data_uri(o.company_id.logo)" style="width: 200px;" alt="Logo"/>
+                  </div>
+              </div>
+              <div class="row zero_min_height">
+                  <div class="col-12">
+                      <div style="border-bottom: 1px solid black;"/>
+                  </div>
+              </div>
+          </div>
+  
+          <div style="padding-top: 40px;" t-attf-class="article o_report_layout_standard" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
+              <t t-raw="0"/>
+          </div>
+  
+      </template>
+  
+      <template id="nuboogh_payment" inherit_id="account.report_payment_receipt_document">
+          <xpath expr="//t[@t-call='web.external_layout']" position="attributes">
+              <attribute name="t-call">al-nuboogh.noboogh_payment_layout</attribute>
+          </xpath>
+  
+          <xpath expr="//div[hasclass('page')]//div[1]" position="inside">
+              <div class="col-6" t-if="o.partner_id">
+                  <strong>الرصيد بعد التسديد: </strong> <span t-field="o.partner_id.total_due"/>
+              </div>
+              <div class="col-6" t-if="o.company_id.include_iqd_pricing_in_accounting">
+                  <strong>الرصيد بعد التسديد (بالدينار): </strong> <span t-field="o.iqd_currency_partner_due"/>
+              </div>
+          </xpath>
+  
+          <xpath expr="//div[@t-if='o.payment_method_id']" position="replace">
+              <div class="col-6" t-if="o.payment_type">
+                  <strong>نوع السداد: </strong><span t-field="o.payment_type"/>
+              </div>
+          </xpath>
+  
+          <xpath expr="//div[@t-if='o.amount']" position="attributes">
+              <attribute name="style">font-size: x-large; text-shadow: 2px 2px 4px gray;</attribute>
+          </xpath>
+      </template>
+  
+      <template id="report_payment_without_table">
+          <t t-call="web.html_container">
+              <t t-foreach="docs" t-as="o">
+                  <t t-set="lang" t-value="o.partner_id.lang or o.company_id.partner_id.lang"/>
+                  <t t-call="al-nuboogh.report_payment_receipt_without_table_document" t-lang="lang"/>
+              </t>
+          </t>
+      </template>
+  
+      <template id="report_payment_receipt_without_table_document">
+          <t t-call="al-nuboogh.noboogh_payment_layout">
+              <t t-set="o" t-value="o.with_context(lang=lang)"/>
+              <div class="page">
+                  <h3><strong>إيصال السداد: <span t-field="o.name"/></strong></h3>
+                  <div class="row mt64">
+                      <div class="col-6" t-if="o.date">
+                          <strong>تاريخ السداد: </strong> <span t-field="o.date"/>
+                      </div>
+                      <div class="col-6" t-if="o.partner_id">
+                          <strong>الرصيد بعد التسديد: </strong> <span t-field="o.partner_id.total_due"/>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-6" t-if="o.partner_type">
+                          <t t-if="o.partner_type == 'customer'">
+                              <strong>العميل: </strong>
+                          </t>
+                          <t t-if="o.partner_type == 'supplier'">
+                              <strong>بائع: </strong>
+                          </t><span t-field="o.partner_id"/>
+                      </div>
+                      <div class="col-6" t-if="o.payment_type">
+                          <strong>نوع السداد: </strong><span t-field="o.payment_type"/>
+                      </div>
+                  </div>
+                  <div class="row mb64">
+                      <div class="col-6" style="font-size: x-large; text-shadow: 2px 2px 4px gray;" t-if="o.amount">
+                          <strong>مبلغ السداد: </strong><span t-field="o.amount" t-options="{'widget': 'monetary', 'display_currency': o.currency_id}"/>
+                      </div>
+                      <div class="col-6" t-if="o.ref">
+                          <strong>الملاحظة: </strong><span t-field="o.ref"/>
+                      </div>
+                  </div>
+              </div>
+          </t>
+      </template>
+  
+      <report
+          id="account_payment_without_table_report"
+          model="account.payment"
+          string="إيصال السداد بدون جدول"
+          name="al-nuboogh.report_payment_without_table"
+          report_type="qweb-pdf"
+          print_report_name="object.name"
+      />
+  
+  
+    </data>
+  </odoo>
+  
