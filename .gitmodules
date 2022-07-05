@@ -124,3 +124,8 @@
 	path = Integrated-Path/product-al-nuboogh
 	url = git@github.com:Integrated-Path/product-al-nuboogh.git
 	branch = master
+
+[submodule "Integrated-Path/stock_move_line_on_hand_quant"]
+	path = Integrated-Path/stock_move_line_on_hand_quant
+	url = git@github.com:Integrated-Path/stock_move_line_on_hand_quant.git
+	branch = master
