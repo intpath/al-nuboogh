@@ -29,7 +29,7 @@
   
           <xpath expr="//div[hasclass('page')]//div[1]" position="inside">
               <div class="col-6" t-if="o.partner_id">
-                  <strong>الرصيد بعد التسديد: </strong> <span t-field="o.partner_id.total_due"/>
+                  <strong>الرصيد بعد التسديد: </strong> <span t-field="o.partner_due"/>
               </div>
               <div class="col-6" t-if="o.company_id.include_iqd_pricing_in_accounting">
                   <strong>الرصيد بعد التسديد (بالدينار): </strong> <span t-field="o.iqd_currency_partner_due"/>
