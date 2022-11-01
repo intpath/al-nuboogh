@@ -32,7 +32,7 @@
                   <strong>الرصيد بعد التسديد: </strong> <span t-field="o.partner_due"/>
               </div>
               <div class="col-6" t-if="o.company_id.include_iqd_pricing_in_accounting">
-                  <strong>الرصيد بعد التسديد (بالدينار): </strong> <span t-field="o.iqd_currency_partner_due"/>
+                  <strong>الرصيد بعد التسديد (بالدينار): </strong> <span t-field="o.partner_due_iqd"/>
               </div>
           </xpath>
   
