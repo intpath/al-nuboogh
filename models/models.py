@@ -104,7 +104,7 @@ class AccountPyament(models.Model):
         lines = account_partner_ledger._get_partner_ledger_lines(options)
         total_balance = float(lines[-1]['columns'][-1]['name'].split()[-1].replace(',', ''))
         iqd_total_balance = self.company_currency_id._convert(
-            self.partner_due,
+            total_balance,
             self.iqd_currency_id,
             self.company_id,
             self.date)
