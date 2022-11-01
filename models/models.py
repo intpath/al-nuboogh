@@ -82,7 +82,7 @@ class AccountPyament(models.Model):
     partner_due = fields.Monetary(
         string="مستحق الزبون/المجهز", compute="_compute_partner_due", currency_field="company_currency_id")
     iqd_currency_id = fields.Many2one("res.currency", "IQD Currency", compute="get_iqd_currency")
-    iqd_currency_partner_due = fields.Monetary(
+    partner_due_iqd = fields.Monetary(
         string="Partner due in IQD currency", compute="_compute_partner_due", currency_field="iqd_currency_id")
     partner_id = fields.Many2one(
         domain="[('company_id', 'in', [main_company_id, False])]")
@@ -109,7 +109,7 @@ class AccountPyament(models.Model):
             self.company_id,
             self.date)
         self.partner_due = total_balance
-        self.iqd_currency_partner_due = iqd_total_balance
+        self.partner_due_iqd = iqd_total_balance
 
 
 class ProductTemplate(models.Model):
