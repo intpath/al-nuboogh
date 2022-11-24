@@ -11,41 +11,27 @@ class AccountMove(models.Model):
     total_qty = fields.Integer(compute="count_sold_item")
     invoice_type = fields.Selection(
         [('monetory', 'نقدي'), ('temem', 'ذمم')], string="نوع الفاتورة", default="temem")
-    previous_customer_debit = fields.Monetary(compute="_get_prev_debit")
-    current_customer_debit = fields.Monetary(compute="_get_curr_debit", currency_field="company_currency_id")
+    
     iqd_currency_id = fields.Many2one("res.currency", "IQD Currency", compute="get_iqd_currency")
-    iqd_current_customer_debit = fields.Monetary(compute="_get_curr_debit", currency_field="iqd_currency_id")
-
+    
     partner_due = fields.Monetary(
-        string="مستحق الزبون/المجهز", compute="_compute_partner_due", currency_field="company_currency_id")
+        string="Partner due", compute="_compute_partner_due", currency_field="company_currency_id")
+    partner_due_iqd = fields.Monetary(
+        string="Partner due (IQD)", compute="_compute_partner_due", currency_field="iqd_currency_id")
 
-    @api.onchange("partner_id")
-    def _get_prev_debit(self):
-        if self.partner_id:
-            self.previous_customer_debit = self.partner_due - self.amount_total
-        else:
-            self.previous_customer_debit = False
+    previous_customer_debit = fields.Monetary(string="Previous Customer Debit", compute="_get_prev_debit", currency_field="company_currency_id")
+    iqd_previous_customer_debit = fields.Monetary(string="Previous Customer Debit (IQD)", compute="_get_prev_debit", currency_field="iqd_currency_id")
+
+    # current_customer_debit = fields.Monetary(string="Current Customer Debit", compute="_get_curr_debit", currency_field="company_currency_id")
+    # iqd_current_customer_debit = fields.Monetary(string="Current Customer Debit (IQD)", compute="_get_curr_debit", currency_field="iqd_currency_id")
+
+
 
     def get_iqd_currency(self):
         for move_id in self:
             move_id.iqd_currency_id = self.env.ref("base.IQD").id
 
-    @api.onchange("partner_id")
-    def _get_curr_debit(self):
-        for account_move in self:
-            if account_move.partner_id:
-                current_customer_debit = account_move.previous_customer_debit + account_move.amount_total
-                account_move.current_customer_debit = current_customer_debit
-                account_move.iqd_current_customer_debit =  account_move.company_currency_id._convert(
-                    current_customer_debit,
-                    account_move.iqd_currency_id,
-                    account_move.company_id,
-                    account_move.date)
-            else:
-                account_move.current_customer_debit = False
-                account_move.iqd_current_customer_debit = False
-
-    @api.onchange('partner_id')
+    @api.depends('partner_id')
     def _compute_partner_due(self):
         account_partner_ledger = self.env['account.partner.ledger'].with_context(
             {'default_partner_id': self.partner_id.id})
@@ -53,7 +39,63 @@ class AccountMove(models.Model):
         options['partner_ids'] = [self.partner_id.id]
         lines = account_partner_ledger._get_partner_ledger_lines(options)
         total_balance = float(lines[-1]['columns'][-1]['name'].split()[-1].replace(',', ''))
+        iqd_total_balance = self.company_currency_id._convert(
+            total_balance,
+            self.iqd_currency_id,
+            self.company_id,
+            self.date)
         self.partner_due = total_balance
+        self.partner_due_iqd = iqd_total_balance
+
+    @api.depends("partner_id")
+    def _get_prev_debit(self):
+        for account_move in self:
+            if account_move.partner_id:
+                if account_move.currency_id == account_move.iqd_currency_id:
+                    account_move.previous_customer_debit = account_move.partner_due - account_move.currency_id._convert(
+                        account_move.amount_total,
+                        account_move.company_currency_id,
+                        account_move.company_id,
+                        account_move.date
+                    )
+                    account_move.iqd_previous_customer_debit = account_move.partner_due_iqd - account_move.amount_total
+                else:
+                    account_move.previous_customer_debit = account_move.partner_due - account_move.amount_total
+                    account_move.iqd_previous_customer_debit = account_move.partner_due_iqd - account_move.currency_id._convert(
+                        account_move.amount_total,
+                        account_move.iqd_currency_id,
+                        account_move.company_id,
+                        account_move.date
+                    )
+            else:
+                account_move.previous_customer_debit = False
+                account_move.iqd_previous_customer_debit = False
+
+    # @api.depends("partner_id")
+    # def _get_curr_debit(self):
+    #     for account_move in self:
+    #         if account_move.partner_id:
+    #             if account_move.currency_id == account_move.iqd_currency_id:
+    #                 usd_amount_total = account_move.currency_id._convert(
+    #                     account_move.amount_total,
+    #                     account_move.company_currency_id,
+    #                     account_move.company_id,
+    #                     account_move.date
+    #                 )
+    #                 account_move.current_customer_debit = account_move.previous_customer_debit + usd_amount_total
+    #                 account_move.iqd_current_customer_debit = account_move.iqd_previous_customer_debit + account_move.amount_total
+    #             else:
+    #                 account_move.current_customer_debit = account_move.previous_customer_debit + account_move.amount_total
+    #                 account_move.iqd_current_customer_debit = account_move.iqd_previous_customer_debit + account_move.currency_id._convert(
+    #                     account_move.amount_total,
+    #                     account_move.iqd_currency_id,
+    #                     account_move.company_id,
+    #                     account_move.date
+    #                 )
+    #         else:
+    #             account_move.current_customer_debit = False
+    #             account_move.iqd_current_customer_debit = False
+
 
 
     @api.depends("partner_id")

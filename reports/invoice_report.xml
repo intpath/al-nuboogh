@@ -92,10 +92,18 @@
             <table class="table table-sm">
               <tr class="border-black o_subtotal" style="">
                 <td>
-                  <strong>الديون السابقة</strong>
+                  <strong>الديون السابقة بالدولار</strong>
                 </td>
                 <td class="text-right">
                   <span t-field="o.previous_customer_debit"/>
+                </td>
+              </tr>
+              <tr class="border-black o_subtotal" style="">
+                <td>
+                  <strong>الديون السابقة بالدينار</strong>
+                </td>
+                <td class="text-right">
+                  <span t-field="o.iqd_previous_customer_debit"/>
                 </td>
               </tr>
               <tr class="border-black o_total">
@@ -103,7 +111,7 @@
                   <strong>الديون الحالية بالدولار</strong>
                 </td>
                 <td class="text-right">
-                  <span t-field="o.current_customer_debit"/>
+                  <span t-field="o.partner_due"/>
                 </td>
               </tr>
               <tr class="border-black o_total" t-if="o.company_id.include_iqd_pricing_in_accounting">
@@ -111,7 +119,7 @@
                   <strong>الديون الحالية بالدينار</strong>
                 </td>
                 <td class="text-right">
-                  <span t-field="o.iqd_current_customer_debit"/>
+                  <span t-field="o.partner_due_iqd"/>
                 </td>
               </tr>
             </table>
