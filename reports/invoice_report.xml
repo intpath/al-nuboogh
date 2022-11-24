@@ -111,7 +111,7 @@
                   <strong>الديون الحالية بالدولار</strong>
                 </td>
                 <td class="text-right">
-                  <span t-field="o.partner_due"/>
+                  <span t-field="o.current_customer_debit"/>
                 </td>
               </tr>
               <tr class="border-black o_total" t-if="o.company_id.include_iqd_pricing_in_accounting">
@@ -119,7 +119,7 @@
                   <strong>الديون الحالية بالدينار</strong>
                 </td>
                 <td class="text-right">
-                  <span t-field="o.partner_due_iqd"/>
+                  <span t-field="o.iqd_current_customer_debit"/>
                 </td>
               </tr>
             </table>

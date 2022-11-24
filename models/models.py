@@ -22,8 +22,8 @@ class AccountMove(models.Model):
     previous_customer_debit = fields.Monetary(string="Previous Customer Debit", compute="_get_prev_debit", currency_field="company_currency_id")
     iqd_previous_customer_debit = fields.Monetary(string="Previous Customer Debit (IQD)", compute="_get_prev_debit", currency_field="iqd_currency_id")
 
-    # current_customer_debit = fields.Monetary(string="Current Customer Debit", compute="_get_curr_debit", currency_field="company_currency_id")
-    # iqd_current_customer_debit = fields.Monetary(string="Current Customer Debit (IQD)", compute="_get_curr_debit", currency_field="iqd_currency_id")
+    current_customer_debit = fields.Monetary(string="Current Customer Debit", compute="_get_curr_debit", currency_field="company_currency_id")
+    iqd_current_customer_debit = fields.Monetary(string="Current Customer Debit (IQD)", compute="_get_curr_debit", currency_field="iqd_currency_id")
 
 
 
@@ -71,30 +71,30 @@ class AccountMove(models.Model):
                 account_move.previous_customer_debit = False
                 account_move.iqd_previous_customer_debit = False
 
-    # @api.depends("partner_id")
-    # def _get_curr_debit(self):
-    #     for account_move in self:
-    #         if account_move.partner_id:
-    #             if account_move.currency_id == account_move.iqd_currency_id:
-    #                 usd_amount_total = account_move.currency_id._convert(
-    #                     account_move.amount_total,
-    #                     account_move.company_currency_id,
-    #                     account_move.company_id,
-    #                     account_move.date
-    #                 )
-    #                 account_move.current_customer_debit = account_move.previous_customer_debit + usd_amount_total
-    #                 account_move.iqd_current_customer_debit = account_move.iqd_previous_customer_debit + account_move.amount_total
-    #             else:
-    #                 account_move.current_customer_debit = account_move.previous_customer_debit + account_move.amount_total
-    #                 account_move.iqd_current_customer_debit = account_move.iqd_previous_customer_debit + account_move.currency_id._convert(
-    #                     account_move.amount_total,
-    #                     account_move.iqd_currency_id,
-    #                     account_move.company_id,
-    #                     account_move.date
-    #                 )
-    #         else:
-    #             account_move.current_customer_debit = False
-    #             account_move.iqd_current_customer_debit = False
+    @api.depends("partner_id")
+    def _get_curr_debit(self):
+        for account_move in self:
+            if account_move.partner_id:
+                if account_move.currency_id == account_move.iqd_currency_id:
+                    usd_amount_total = account_move.currency_id._convert(
+                        account_move.amount_total,
+                        account_move.company_currency_id,
+                        account_move.company_id,
+                        account_move.date
+                    )
+                    account_move.current_customer_debit = account_move.previous_customer_debit + usd_amount_total
+                    account_move.iqd_current_customer_debit = account_move.iqd_previous_customer_debit + account_move.amount_total
+                else:
+                    account_move.current_customer_debit = account_move.previous_customer_debit + account_move.amount_total
+                    account_move.iqd_current_customer_debit = account_move.iqd_previous_customer_debit + account_move.currency_id._convert(
+                        account_move.amount_total,
+                        account_move.iqd_currency_id,
+                        account_move.company_id,
+                        account_move.date
+                    )
+            else:
+                account_move.current_customer_debit = False
+                account_move.iqd_current_customer_debit = False
 
 
 
