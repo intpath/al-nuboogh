@@ -151,4 +151,33 @@
 
             <div class="col-4" style="border-right: solid black 1px; border-left: solid black 1px;">
               <p align="center" style="line-height: 0.07; font-weight: bold;">مبيعات</p>
-              <p align="center
+              <p align="center" style="line-height: 0.07;">07733395399</p>
+            </div>
+
+            <div class="col-4">
+              <p align="left" style="line-height: 0.07; padding-top: 8px;">nuboogh_2003@yahoo.com</p>
+            </div>
+          </div>
+
+        </xpath>
+
+
+
+        <xpath expr="//t[@t-call='web.address_layout']//.." position="attributes">
+          <attribute name="style">margin-bottom: 10px; width: 100%;</attribute>
+          <attribute name="align">right</attribute>
+        </xpath>
+
+        <xpath expr="//div[@name='financial_infos']//..//.." position="replace"/>
+
+      </template>
+
+      <template id="nuboogh_address_layout" inherit_id="web.address_layout">
+        <xpath expr="//div[@name='address']" position="attributes">
+          <attribute name="style">float: right;</attribute>
+        </xpath>
+      </template>
+
+
+  </data>
+</odoo>
