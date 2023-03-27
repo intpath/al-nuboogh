@@ -19,7 +19,7 @@
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
+        'security/res_groups.xml',
         'views/account_move_view.xml',
         'views/product_product.xml',
         'views/account_payment_view.xml',

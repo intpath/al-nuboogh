@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="group_show_iqd_previous_and_current_customer_debit" model="res.groups">
+        <field name="name">Show IQD Previous and Current Customer Debit</field>
+    </record>
+</odoo>
