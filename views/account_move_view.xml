@@ -18,11 +18,12 @@
                         <field name="partner_due"/>
                         <field name="partner_due_iqd"/>
                         
+                        <field name="include_iqd_pricing_in_accounting" invisible="1"/>
                         <field name="previous_customer_debit"/>
-                        <field name="iqd_previous_customer_debit" groups="al-nuboogh.group_show_iqd_previous_and_current_customer_debit"/>
+                        <field name="iqd_previous_customer_debit" attrs="{'invisible': [('include_iqd_pricing_in_accounting', '=', False)]}"/>
                         
                         <field name="current_customer_debit"/>
-                        <field name="iqd_current_customer_debit" groups="al-nuboogh.group_show_iqd_previous_and_current_customer_debit"/>
+                        <field name="iqd_current_customer_debit" attrs="{'invisible': [('include_iqd_pricing_in_accounting', '=', False)]}"/>
                     </group>
                 </xpath>
             </field>

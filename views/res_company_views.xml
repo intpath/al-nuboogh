@@ -6,14 +6,8 @@
           <field name="model">res.company</field>
           <field name="inherit_id" ref="base.view_company_form"/>
           <field name="arch" type="xml">
-            <xpath expr="//page[@name='general_info']" position="after">
-              <page name="report_info" string="Report Info" groups="base.group_no_one">
-                <group>
-                  <group>
-                    <field name="include_iqd_pricing_in_accounting" />
-                  </group>
-                </group>
-              </page>
+            <xpath expr="//page[@name='general_info']//group[1]//group[2]" position="inside">
+              <field name="include_iqd_pricing_in_accounting" />
             </xpath>
           </field>
         </record>

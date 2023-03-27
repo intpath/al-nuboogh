@@ -25,6 +25,7 @@ class AccountMove(models.Model):
     current_customer_debit = fields.Monetary(string="Current Customer Debit", compute="_get_curr_debit", currency_field="company_currency_id")
     iqd_current_customer_debit = fields.Monetary(string="Current Customer Debit (IQD)", compute="_get_curr_debit", currency_field="iqd_currency_id")
 
+    include_iqd_pricing_in_accounting = fields.Boolean(string="Include IQD Pricing in Accounting", related='company_id.include_iqd_pricing_in_accounting')
 
 
     def get_iqd_currency(self):
