@@ -98,7 +98,7 @@
                   <span t-field="o.previous_customer_debit"/>
                 </td>
               </tr>
-              <tr class="border-black o_subtotal" style="">
+              <tr class="border-black o_subtotal" t-if="o.company_id.include_iqd_pricing_in_accounting">
                 <td>
                   <strong>الديون السابقة بالدينار</strong>
                 </td>

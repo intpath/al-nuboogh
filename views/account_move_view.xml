@@ -16,7 +16,7 @@
                         <field name="company_currency_id"/>
                         
                         <field name="partner_due"/>
-                        <field name="partner_due_iqd"/>
+                        <field name="partner_due_iqd" attrs="{'invisible': [('include_iqd_pricing_in_accounting', '=', False)]}"/>
                         
                         <field name="include_iqd_pricing_in_accounting" invisible="1"/>
                         <field name="previous_customer_debit"/>
