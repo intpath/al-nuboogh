@@ -129,3 +129,8 @@
 	path = Integrated-Path/stock_move_line_on_hand_quant
 	url = git@github.com:Integrated-Path/stock_move_line_on_hand_quant.git
 	branch = master
+
+[submodule "Integrated-Path/bi_update_qty_disable"]
+	path = Integrated-Path/bi_update_qty_disable
+	url = git@github.com:Integrated-Path/bi_update_qty_disable.git
+	branch = master
