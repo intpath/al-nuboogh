@@ -134,3 +134,8 @@
 	path = Integrated-Path/bi_update_qty_disable
 	url = git@github.com:Integrated-Path/bi_update_qty_disable.git
 	branch = master
+
+[submodule "Integrated-Path/sale_order_qty_change_no_recompute"]
+	path = Integrated-Path/sale_order_qty_change_no_recompute
+	url = git@github.com:Integrated-Path/sale_order_qty_change_no_recompute.git
+	branch = master
