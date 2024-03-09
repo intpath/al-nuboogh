@@ -73,6 +73,14 @@
            <attribute name="style">font-weight: bold;</attribute>
           
         </xpath>
+        <xpath expr="//table[@name='invoice_line_table']" position="before">
+           <attribute name="style">border: 1px solid black;</attribute>
+          <style>
+            td,th{
+              border: 1px solid black;
+            }
+          </style>
+        </xpath>
 
         <xpath expr="//div[@id='total']//table//tr[1]" position="before">
           <tr>
