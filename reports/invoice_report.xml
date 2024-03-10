@@ -74,7 +74,7 @@
           
         </xpath>
         <xpath expr="//table[@name='invoice_line_table']" position="before">
-           <attribute name="style">border: 1px solid black;</attribute>
+<!--           <attribute name="style">border: 1px solid black;</attribute>-->
           <style>
             td,th{
               border: 1px solid black;
@@ -84,10 +84,10 @@
 
         <xpath expr="//div[@id='total']//table//tr[1]" position="before">
           <tr>
-            <td>
+            <td style="border-top:1px solid;">
               <strong class="mr12">الكمية المباعة</strong>
             </td>
-            <td class="text-right">
+            <td class="text-right" style="border-top:1px solid;">
               <span t-field="o.total_qty" class="text-left mr16"/>
             </td>
           </tr>

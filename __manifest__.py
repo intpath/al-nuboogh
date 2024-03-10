@@ -19,6 +19,7 @@
 
     # always loaded
     'data': [
+        'data/paperformat.xml',
         'views/account_move_view.xml',
         'views/product_product.xml',
         'views/account_payment_view.xml',
