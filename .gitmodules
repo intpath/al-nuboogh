@@ -139,3 +139,8 @@
 	path = Integrated-Path/sale_order_qty_change_no_recompute
 	url = git@github.com:Integrated-Path/sale_order_qty_change_no_recompute.git
 	branch = master
+
+[submodule "Integrated-Path/hr_payroll_account_multi_currency_journal"]
+	path = Integrated-Path/hr_payroll_account_multi_currency_journal
+	url = git@github.com:Integrated-Path/hr_payroll_account_multi_currency_journal.git
+	branch = 14
